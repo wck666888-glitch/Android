@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base Theme -->
+    <style name="Theme.IRRemote" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Primary Colors -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+
+        <!-- Secondary Colors -->
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnSecondary">@color/on_secondary</item>
+
+        <!-- Background Colors -->
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+
+        <!-- Status Bar -->
+        <item name="android:statusBarColor">@color/background</item>
+        <item name="android:navigationBarColor">@color/background</item>
+    </style>
+
+    <!-- Remote Button Base Style -->
+    <style name="RemoteButton" parent="Widget.Material3.Button">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:minWidth">60dp</item>
+        <item name="android:minHeight">60dp</item>
+        <item name="android:elevation">4dp</item>
+    </style>
+
+    <!-- Power Button Style -->
+    <style name="RemoteButton.Power">
+        <item name="backgroundTint">@color/button_power</item>
+        <item name="android:textSize">14sp</item>
+        <item name="cornerRadius">30dp</item>
+        <item name="android:minWidth">64dp</item>
+        <item name="android:minHeight">64dp</item>
+    </style>
+
+    <!-- Number Button Style -->
+    <style name="RemoteButton.Number">
+        <item name="backgroundTint">@color/button_number</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="android:minWidth">72dp</item>
+        <item name="android:minHeight">56dp</item>
+    </style>
+
+    <!-- Direction Button Style -->
+    <style name="RemoteButton.Direction">
+        <item name="backgroundTint">@color/button_direction</item>
+        <item name="android:textSize">24sp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:minWidth">64dp</item>
+        <item name="android:minHeight">64dp</item>
+    </style>
+
+    <!-- OK Button Style (Center of D-pad) -->
+    <style name="RemoteButton.OK">
+        <item name="backgroundTint">@color/button_ok</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">35dp</item>
+        <item name="android:minWidth">70dp</item>
+        <item name="android:minHeight">70dp</item>
+    </style>
+
+    <!-- Function Button Style -->
+    <style name="RemoteButton.Function">
+        <item name="backgroundTint">@color/button_function</item>
+        <item name="android:textSize">12sp</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:minWidth">72dp</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <!-- Volume Button Style -->
+    <style name="RemoteButton.Volume">
+        <item name="backgroundTint">@color/button_volume</item>
+        <item name="android:textSize">14sp</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <!-- Channel Button Style -->
+    <style name="RemoteButton.Channel">
+        <item name="backgroundTint">@color/button_channel</item>
+        <item name="android:textSize">14sp</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <!-- Mute Button Style -->
+    <style name="RemoteButton.Mute">
+        <item name="backgroundTint">@color/button_mute</item>
+        <item name="android:textSize">12sp</item>
+        <item name="cornerRadius">24dp</item>
+    </style>
+
+    <!-- Color Buttons -->
+    <style name="RemoteButton.Color">
+        <item name="android:textSize">12sp</item>
+        <item name="cornerRadius">4dp</item>
+        <item name="android:minWidth">60dp</item>
+        <item name="android:minHeight">32dp</item>
+    </style>
+
+    <style name="RemoteButton.Color.Red">
+        <item name="backgroundTint">@color/button_red</item>
+    </style>
+
+    <style name="RemoteButton.Color.Green">
+        <item name="backgroundTint">@color/button_green</item>
+    </style>
+
+    <style name="RemoteButton.Color.Yellow">
+        <item name="backgroundTint">@color/button_yellow</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="RemoteButton.Color.Blue">
+        <item name="backgroundTint">@color/button_blue</item>
+    </style>
+
+    <!-- Dialog Theme -->
+    <style name="Theme.IRRemote.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorSurface">@color/surface</item>
+    </style>
+</resources>

@@ -10,10 +10,13 @@
 /.idea/assetWizardSettings.xml
 .DS_Store
 /build
+/app/build
 /captures
 .externalNativeBuild
 .cxx
 local.properties
+*.apk
+*.aab
 
 # Java
 *.class
@@ -23,3 +26,13 @@ local.properties
 
 # Logs
 *.log
+
+# Node.js (Server)
+server/node_modules/
+server/package-lock.json
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo

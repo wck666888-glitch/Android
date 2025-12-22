@@ -1,0 +1,193 @@
+{
+    "id": "cvte_factory",
+    "name": "CVTE工厂遥控器",
+    "description": "CVTE TV工厂测试遥控器配置",
+    "protocol": 1,
+    "header": 34960,
+    "is_default": true,
+    "version": "1.0",
+    "created_at": 1703232000000,
+    "updated_at": 1703232000000,
+    "keys": [
+        {
+            "key_name": "KEY_POWER",
+            "key_code": 1,
+            "display_name": "电源",
+            "category": "function"
+        },
+        {
+            "key_name": "KEY_0",
+            "key_code": 16,
+            "display_name": "0",
+            "category": "number"
+        },
+        {
+            "key_name": "KEY_1",
+            "key_code": 2,
+            "display_name": "1",
+            "category": "number"
+        },
+        {
+            "key_name": "KEY_2",
+            "key_code": 18,
+            "display_name": "2",
+            "category": "number"
+        },
+        {
+            "key_name": "KEY_3",
+            "key_code": 6,
+            "display_name": "3",
+            "category": "number"
+        },
+        {
+            "key_name": "KEY_4",
+            "key_code": 22,
+            "display_name": "4",
+            "category": "number"
+        },
+        {
+            "key_name": "KEY_5",
+            "key_code": 3,
+            "display_name": "5",
+            "category": "number"
+        },
+        {
+            "key_name": "KEY_6",
+            "key_code": 19,
+            "display_name": "6",
+            "category": "number"
+        },
+        {
+            "key_name": "KEY_7",
+            "key_code": 7,
+            "display_name": "7",
+            "category": "number"
+        },
+        {
+            "key_name": "KEY_8",
+            "key_code": 23,
+            "display_name": "8",
+            "category": "number"
+        },
+        {
+            "key_name": "KEY_9",
+            "key_code": 0,
+            "display_name": "9",
+            "category": "number"
+        },
+        {
+            "key_name": "KEY_UP",
+            "key_code": 86,
+            "display_name": "▲",
+            "category": "direction"
+        },
+        {
+            "key_name": "KEY_DOWN",
+            "key_code": 80,
+            "display_name": "▼",
+            "category": "direction"
+        },
+        {
+            "key_name": "KEY_LEFT",
+            "key_code": 71,
+            "display_name": "◄",
+            "category": "direction"
+        },
+        {
+            "key_name": "KEY_RIGHT",
+            "key_code": 75,
+            "display_name": "►",
+            "category": "direction"
+        },
+        {
+            "key_name": "KEY_ENTER",
+            "key_code": 87,
+            "display_name": "确认",
+            "category": "direction"
+        },
+        {
+            "key_name": "KEY_VOLUMEUP",
+            "key_code": 68,
+            "display_name": "音量+",
+            "category": "volume"
+        },
+        {
+            "key_name": "KEY_VOLUMEDOWN",
+            "key_code": 69,
+            "display_name": "音量-",
+            "category": "volume"
+        },
+        {
+            "key_name": "KEY_MUTE",
+            "key_code": 17,
+            "display_name": "静音",
+            "category": "volume"
+        },
+        {
+            "key_name": "KEY_CHANNELUP",
+            "key_code": 72,
+            "display_name": "频道+",
+            "category": "channel"
+        },
+        {
+            "key_name": "KEY_CHANNELDOWN",
+            "key_code": 73,
+            "display_name": "频道-",
+            "category": "channel"
+        },
+        {
+            "key_name": "KEY_MENU",
+            "key_code": 70,
+            "display_name": "菜单",
+            "category": "function"
+        },
+        {
+            "key_name": "KEY_BACK",
+            "key_code": 74,
+            "display_name": "返回",
+            "category": "function"
+        },
+        {
+            "key_name": "KEY_HOME",
+            "key_code": 76,
+            "display_name": "主页",
+            "category": "function"
+        },
+        {
+            "key_name": "KEY_INFO",
+            "key_code": 5,
+            "display_name": "信息",
+            "category": "function"
+        },
+        {
+            "key_name": "KEY_SUBTITLE",
+            "key_code": 65,
+            "display_name": "字幕",
+            "category": "function"
+        },
+        {
+            "key_name": "KEY_RED",
+            "key_code": 29,
+            "display_name": "红",
+            "category": "color"
+        },
+        {
+            "key_name": "KEY_GREEN",
+            "key_code": 30,
+            "display_name": "绿",
+            "category": "color"
+        },
+        {
+            "key_name": "KEY_YELLOW",
+            "key_code": 31,
+            "display_name": "黄",
+            "category": "color"
+        },
+        {
+            "key_name": "KEY_BLUE",
+            "key_code": 28,
+            "display_name": "蓝",
+            "category": "color"
+        }
+    ]
+}

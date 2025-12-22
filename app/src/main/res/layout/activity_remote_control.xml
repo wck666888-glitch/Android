@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fillViewport="true"
+    tools:context=".ui.RemoteControlActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_medium">
+
+        <!-- 顶部工具栏 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/margin_medium">
+
+            <TextView
+                android:id="@+id/tvConfigName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/app_name"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/btnSettings"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/menu_settings"
+                android:src="@android:drawable/ic_menu_manage"
+                app:tint="@color/text_primary" />
+        </LinearLayout>
+
+        <!-- 电源键区域 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/margin_medium">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPower"
+                style="@style/RemoteButton.Power"
+                android:layout_width="@dimen/power_button_size"
+                android:layout_height="@dimen/power_button_size"
+                android:text="@string/btn_power"
+                app:icon="@android:drawable/ic_lock_power_off"
+                app:iconGravity="top"
+                app:iconTint="@color/on_primary" />
+        </LinearLayout>
+
+        <!-- 数字键盘区域 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_small"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation">
+
+            <GridLayout
+                android:id="@+id/gridNumbers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alignmentMode="alignMargins"
+                android:columnCount="3"
+                android:padding="@dimen/margin_small"
+                android:rowCount="4"
+                android:useDefaultMargins="true">
+
+                <!-- Row 1: 1 2 3 -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn1"
+                    style="@style/RemoteButton.Number"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/number_button_height"
+                    android:layout_columnWeight="1"
+                    android:text="@string/btn_1" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn2"
+                    style="@style/RemoteButton.Number"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/number_button_height"
+                    android:layout_columnWeight="1"
+                    android:text="@string/btn_2" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn3"
+                    style="@style/RemoteButton.Number"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/number_button_height"
+                    android:layout_columnWeight="1"
+                    android:text="@string/btn_3" />
+
+                <!-- Row 2: 4 5 6 -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn4"
+                    style="@style/RemoteButton.Number"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/number_button_height"
+                    android:layout_columnWeight="1"
+                    android:text="@string/btn_4" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn5"
+                    style="@style/RemoteButton.Number"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/number_button_height"
+                    android:layout_columnWeight="1"
+                    android:text="@string/btn_5" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn6"
+                    style="@style/RemoteButton.Number"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/number_button_height"
+                    android:layout_columnWeight="1"
+                    android:text="@string/btn_6" />
+
+                <!-- Row 3: 7 8 9 -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn7"
+                    style="@style/RemoteButton.Number"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/number_button_height"
+                    android:layout_columnWeight="1"
+                    android:text="@string/btn_7" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn8"
+                    style="@style/RemoteButton.Number"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/number_button_height"
+                    android:layout_columnWeight="1"
+                    android:text="@string/btn_8" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn9"
+                    style="@style/RemoteButton.Number"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/number_button_height"
+                    android:layout_columnWeight="1"
+                    android:text="@string/btn_9" />
+
+                <!-- Row 4: Info 0 Subtitle -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnInfo"
+                    style="@style/RemoteButton.Function"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/number_button_height"
+                    android:layout_columnWeight="1"
+                    android:text="@string/btn_info" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn0"
+                    style="@style/RemoteButton.Number"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/number_button_height"
+                    android:layout_columnWeight="1"
+                    android:text="@string/btn_0" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSubtitle"
+                    style="@style/RemoteButton.Function"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/number_button_height"
+                    android:layout_columnWeight="1"
+                    android:text="@string/btn_subtitle" />
+
+            </GridLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 方向键区域 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_small"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_medium">
+
+                <!-- 音量控制 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnVolUp"
+                        style="@style/RemoteButton.Volume"
+                        android:layout_width="@dimen/vol_ch_button_width"
+                        android:layout_height="@dimen/vol_ch_button_height"
+                        android:text="@string/btn_vol_up" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnMute"
+                        style="@style/RemoteButton.Mute"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginVertical="4dp"
+                        android:text="@string/btn_mute" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnVolDown"
+                        style="@style/RemoteButton.Volume"
+                        android:layout_width="@dimen/vol_ch_button_width"
+                        android:layout_height="@dimen/vol_ch_button_height"
+                        android:text="@string/btn_vol_down" />
+                </LinearLayout>
+
+                <!-- 方向键 D-Pad -->
+                <FrameLayout
+                    android:id="@+id/dpadContainer"
+                    android:layout_width="@dimen/dpad_container_size"
+                    android:layout_height="@dimen/dpad_container_size"
+                    android:layout_marginHorizontal="@dimen/margin_medium">
+
+                    <!-- OK 确认键 (中心) -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnOk"
+                        style="@style/RemoteButton.OK"
+                        android:layout_width="@dimen/ok_button_size"
+                        android:layout_height="@dimen/ok_button_size"
+                        android:layout_gravity="center"
+                        android:text="@string/btn_ok" />
+
+                    <!-- 上 -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnUp"
+                        style="@style/RemoteButton.Direction"
+                        android:layout_width="@dimen/direction_button_size"
+                        android:layout_height="@dimen/direction_button_size"
+                        android:layout_gravity="top|center_horizontal"
+                        android:text="@string/btn_up" />
+
+                    <!-- 下 -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnDown"
+                        style="@style/RemoteButton.Direction"
+                        android:layout_width="@dimen/direction_button_size"
+                        android:layout_height="@dimen/direction_button_size"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:text="@string/btn_down" />
+
+                    <!-- 左 -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnLeft"
+                        style="@style/RemoteButton.Direction"
+                        android:layout_width="@dimen/direction_button_size"
+                        android:layout_height="@dimen/direction_button_size"
+                        android:layout_gravity="center_vertical|start"
+                        android:text="@string/btn_left" />
+
+                    <!-- 右 -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnRight"
+                        style="@style/RemoteButton.Direction"
+                        android:layout_width="@dimen/direction_button_size"
+                        android:layout_height="@dimen/direction_button_size"
+                        android:layout_gravity="center_vertical|end"
+                        android:text="@string/btn_right" />
+                </FrameLayout>
+
+                <!-- 频道控制 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnChUp"
+                        style="@style/RemoteButton.Channel"
+                        android:layout_width="@dimen/vol_ch_button_width"
+                        android:layout_height="@dimen/vol_ch_button_height"
+                        android:text="@string/btn_ch_up" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnHome"
+                        style="@style/RemoteButton.Function"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginVertical="4dp"
+                        android:text="@string/btn_home" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnChDown"
+                        style="@style/RemoteButton.Channel"
+                        android:layout_width="@dimen/vol_ch_button_width"
+                        android:layout_height="@dimen/vol_ch_button_height"
+                        android:text="@string/btn_ch_down" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 功能键区域 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_small"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_small">
+
+                <!-- 功能键第一行: 菜单 返回 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnMenu"
+                        style="@style/RemoteButton.Function"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/function_button_height"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_menu" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnBack"
+                        style="@style/RemoteButton.Function"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/function_button_height"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_back" />
+                </LinearLayout>
+
+                <!-- 颜色快捷键 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnRed"
+                        style="@style/RemoteButton.Color.Red"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/color_button_height"
+                        android:layout_marginEnd="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_red" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnGreen"
+                        style="@style/RemoteButton.Color.Green"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/color_button_height"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_green" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnYellow"
+                        style="@style/RemoteButton.Color.Yellow"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/color_button_height"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_yellow" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnBlue"
+                        style="@style/RemoteButton.Color.Blue"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/color_button_height"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_blue" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 状态提示 -->
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:gravity="center"
+            android:text="@string/msg_loading"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_size_small" />
+
+    </LinearLayout>
+</ScrollView>

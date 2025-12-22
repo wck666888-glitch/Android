@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Info -->
+    <string name="app_name">IR遥控器</string>
+    <string name="app_description">TV红外遥控模拟器</string>
+
+    <!-- Screen Titles -->
+    <string name="remote_control_title">遥控器</string>
+    <string name="config_editor_title">编辑配置</string>
+    <string name="config_list_title">配置管理</string>
+
+    <!-- Button Labels -->
+    <string name="btn_power">电源</string>
+    <string name="btn_mute">静音</string>
+    <string name="btn_source">信源</string>
+    <string name="btn_menu">菜单</string>
+    <string name="btn_home">主页</string>
+    <string name="btn_back">返回</string>
+    <string name="btn_ok">确认</string>
+    <string name="btn_up">▲</string>
+    <string name="btn_down">▼</string>
+    <string name="btn_left">◄</string>
+    <string name="btn_right">►</string>
+    <string name="btn_vol_up">音量+</string>
+    <string name="btn_vol_down">音量-</string>
+    <string name="btn_ch_up">频道+</string>
+    <string name="btn_ch_down">频道-</string>
+    <string name="btn_info">信息</string>
+    <string name="btn_subtitle">字幕</string>
+    <string name="btn_record">录制</string>
+    <string name="btn_zoom">缩放</string>
+    <string name="btn_help">帮助</string>
+
+    <!-- Color Buttons -->
+    <string name="btn_red">红</string>
+    <string name="btn_green">绿</string>
+    <string name="btn_yellow">黄</string>
+    <string name="btn_blue">蓝</string>
+
+    <!-- Number Buttons -->
+    <string name="btn_0">0</string>
+    <string name="btn_1">1</string>
+    <string name="btn_2">2</string>
+    <string name="btn_3">3</string>
+    <string name="btn_4">4</string>
+    <string name="btn_5">5</string>
+    <string name="btn_6">6</string>
+    <string name="btn_7">7</string>
+    <string name="btn_8">8</string>
+    <string name="btn_9">9</string>
+
+    <!-- Menu Items -->
+    <string name="menu_settings">设置</string>
+    <string name="menu_config">配置管理</string>
+    <string name="menu_about">关于</string>
+    <string name="menu_sync">同步配置</string>
+
+    <!-- Config Editor -->
+    <string name="config_name">配置名称</string>
+    <string name="config_protocol">协议</string>
+    <string name="config_header">Header</string>
+    <string name="config_keys">按键列表</string>
+    <string name="config_save">保存</string>
+    <string name="config_export">导出</string>
+    <string name="config_import">导入</string>
+    <string name="config_delete">删除</string>
+    <string name="config_add_key">添加按键</string>
+
+    <!-- Key Editor Dialog -->
+    <string name="key_name">按键名称</string>
+    <string name="key_code">按键码值</string>
+    <string name="key_display_name">显示名称</string>
+    <string name="dialog_confirm">确定</string>
+    <string name="dialog_cancel">取消</string>
+
+    <!-- Messages -->
+    <string name="msg_ir_sent">信号已发送: %s</string>
+    <string name="msg_ir_failed">发送失败</string>
+    <string name="msg_ir_not_supported">此设备不支持红外发射功能</string>
+    <string name="msg_config_saved">配置已保存</string>
+    <string name="msg_config_exported">配置已导出</string>
+    <string name="msg_config_imported">配置已导入</string>
+    <string name="msg_config_deleted">配置已删除</string>
+    <string name="msg_config_switched">已切换到: %s</string>
+    <string name="msg_sync_success">同步成功</string>
+    <string name="msg_sync_failed">同步失败: %s</string>
+    <string name="msg_network_error">网络连接失败</string>
+    <string name="msg_loading">加载中…</string>
+
+    <!-- Error Messages -->
+    <string name="error_empty_name">名称不能为空</string>
+    <string name="error_invalid_code">无效的码值</string>
+    <string name="error_parse_failed">配置解析失败</string>
+    <string name="error_file_not_found">文件未找到</string>
+
+    <!-- About Dialog -->
+    <string name="about_title">关于</string>
+    <string name="about_version">版本: %s</string>
+    <string name="about_description">CVTE TV红外遥控模拟器\n开发于2024年</string>
+
+    <!-- Content Descriptions (Accessibility) -->
+    <string name="cd_power_button">电源按钮</string>
+    <string name="cd_direction_up">向上按钮</string>
+    <string name="cd_direction_down">向下按钮</string>
+    <string name="cd_direction_left">向左按钮</string>
+    <string name="cd_direction_right">向右按钮</string>
+    <string name="cd_ok_button">确认按钮</string>
+    <string name="cd_volume_up">音量增加</string>
+    <string name="cd_volume_down">音量减少</string>
+</resources>
