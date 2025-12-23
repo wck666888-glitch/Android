@@ -147,35 +147,56 @@ class NECIREmitter(context: Context) : IIREmitter {
     /**
      * 编码NEC协议信号
      * 
-     * 数据格式: [Header 16bit] + [KeyCode 16bit]
+     * CVTE工厂遥控器数据格式: 
+     * [Header 16bit] + [Command 8bit] + [Command Inverse 8bit]
      * 
-     * @param header 协议头 (16位)
-     * @param keyCode 按键码值 (16位)
+     * 标准NEC扩展协议，Header为客户码(16位)，Command为8位命令+8位反码
+     * 
+     * @param header 协议头/客户码 (16位，如0x8890)
+     * @param keyCode 按键码值 (8位有效，如0x01)
      * @return IR时序数组
      */
     private fun encodeNEC(header: Int, keyCode: Int): IntArray {
         val pattern = mutableListOf<Int>()
         
-        // 1. 添加起始码
+        // 提取8位命令码
+        val command = keyCode and 0xFF
+        // 计算命令反码
+        val commandInverse = command.inv() and 0xFF
+        
+        IRLogger.d(TAG, "NEC Encoding: header=0x${header.toString(16).uppercase()}, " +
+                "cmd=0x${command.toString(16).uppercase()}, " +
+                "cmdInv=0x${commandInverse.toString(16).uppercase()}")
+        
+        // 1. 添加起始码 (Leader)
         pattern.add(HEADER_PULSE)
         pattern.add(HEADER_SPACE)
         
-        // 2. 编码Header (16位, LSB优先)
+        // 2. 编码Header/Address (16位, LSB优先)
         for (i in 0 until 16) {
             val bit = (header shr i) and 0x01
             pattern.add(BIT_PULSE)
             pattern.add(if (bit == 1) BIT_1_SPACE else BIT_0_SPACE)
         }
         
-        // 3. 编码KeyCode (16位, LSB优先)
-        for (i in 0 until 16) {
-            val bit = (keyCode shr i) and 0x01
+        // 3. 编码Command (8位, LSB优先)
+        for (i in 0 until 8) {
+            val bit = (command shr i) and 0x01
             pattern.add(BIT_PULSE)
             pattern.add(if (bit == 1) BIT_1_SPACE else BIT_0_SPACE)
         }
         
-        // 4. 添加结束位
+        // 4. 编码Command Inverse (8位, LSB优先)
+        for (i in 0 until 8) {
+            val bit = (commandInverse shr i) and 0x01
+            pattern.add(BIT_PULSE)
+            pattern.add(if (bit == 1) BIT_1_SPACE else BIT_0_SPACE)
+        }
+        
+        // 5. 添加结束位 (Stop bit)
         pattern.add(STOP_PULSE)
+        
+        IRLogger.d(TAG, "Pattern generated: ${pattern.size} elements")
         
         return pattern.toIntArray()
     }
