@@ -248,8 +248,7 @@ class RemoteControlActivity : AppCompatActivity() {
                 true
             }
             R.id.action_sync -> {
-                // TODO: 实现远程同步
-                Toast.makeText(this, R.string.msg_sync_success, Toast.LENGTH_SHORT).show()
+                viewModel.syncConfigs()
                 true
             }
             R.id.action_about -> {

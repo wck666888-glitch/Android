@@ -211,6 +211,32 @@ class ConfigRepository private constructor(private val context: Context) {
             null
         }
     }
+
+    /**
+     * 从远程服务器同步配置
+     */
+    suspend fun syncFromRemote(): Boolean {
+        return try {
+            val configs = com.cvte.irremote.network.RetrofitClient.apiService.getAllConfigs()
+            var successCount = 0
+            
+            configs.forEach { metadata ->
+                try {
+                    val config = com.cvte.irremote.network.RetrofitClient.apiService.getConfig(metadata.id)
+                    saveConfig(config)
+                    successCount++
+                } catch (e: Exception) {
+                    IRLogger.e(TAG, "Failed to fetch config: ${metadata.id}", e)
+                }
+            }
+            
+            IRLogger.i(TAG, "Synced $successCount configs from remote")
+            successCount > 0
+        } catch (e: Exception) {
+            IRLogger.e(TAG, "Failed to sync from remote", e)
+            false
+        }
+    }
     
     /**
      * 加载默认配置 (CVTE工厂遥控器)

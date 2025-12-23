@@ -43,6 +43,33 @@ class RemoteControlViewModel(application: Application) : AndroidViewModel(applic
     // 状态消息
     private val _statusMessage = MutableLiveData<String>()
     val statusMessage: LiveData<String> = _statusMessage
+
+    // 同步状态
+    private val _isSyncing = MutableLiveData<Boolean>()
+    val isSyncing: LiveData<Boolean> = _isSyncing
+
+    /**
+     * 同步远程配置
+     */
+    fun syncConfigs() {
+        if (_isSyncing.value == true) return
+        
+        _isSyncing.value = true
+        _statusMessage.value = "正在同步配置..."
+        
+        viewModelScope.launch {
+            val success = configRepository.syncFromRemote()
+            
+            _isSyncing.value = false
+            if (success) {
+                _statusMessage.value = "配置同步成功"
+                // 刷新当前配置
+                loadCurrentConfig()
+            } else {
+                _statusMessage.value = "配置同步失败，请检查网络"
+            }
+        }
+    }
     
     init {
         // 检查IR支持
