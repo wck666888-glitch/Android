@@ -6,8 +6,6 @@ import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -61,8 +59,8 @@ class RemoteControlActivity : AppCompatActivity() {
      */
     private fun setupViews() {
         // 设置按钮
-        binding.btnSettings.setOnClickListener {
-            showConfigDialog()
+        binding.btnSettings.setOnClickListener { view ->
+            showSettingsMenu(view)
         }
         
         // 电源键
@@ -236,27 +234,30 @@ class RemoteControlActivity : AppCompatActivity() {
             .show()
     }
     
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_remote, menu)
-        return true
-    }
-    
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.action_config -> {
-                showConfigDialog()
-                true
+    /**
+     * 显示设置菜单
+     */
+    private fun showSettingsMenu(view: View) {
+        val popup = android.widget.PopupMenu(this, view)
+        popup.menuInflater.inflate(R.menu.menu_remote, popup.menu)
+        popup.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.action_config -> {
+                    showConfigDialog()
+                    true
+                }
+                R.id.action_sync -> {
+                    viewModel.syncConfigs()
+                    true
+                }
+                R.id.action_about -> {
+                    showAboutDialog()
+                    true
+                }
+                else -> false
             }
-            R.id.action_sync -> {
-                viewModel.syncConfigs()
-                true
-            }
-            R.id.action_about -> {
-                showAboutDialog()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
         }
+        popup.show()
     }
     
     /**
