@@ -66,7 +66,7 @@ class RemoteControlViewModel(application: Application) : AndroidViewModel(applic
             if (success) {
                 _statusMessage.value = "配置同步成功"
                 // 刷新当前配置
-                loadCurrentConfig()
+                loadConfig()
             } else {
                 _statusMessage.value = "配置同步失败，请检查网络"
             }
