@@ -4,11 +4,13 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.cvte.irremote.ir.IRManager
 import com.cvte.irremote.model.entity.EmitResult
 import com.cvte.irremote.model.entity.IRConfig
 import com.cvte.irremote.model.repository.ConfigRepository
 import com.cvte.irremote.utils.IRLogger
+import kotlinx.coroutines.launch
 
 /**
  * 遥控器界面 ViewModel
