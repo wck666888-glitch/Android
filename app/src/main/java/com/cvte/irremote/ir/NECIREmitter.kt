@@ -96,12 +96,14 @@ class NECIREmitter(context: Context) : IIREmitter {
             IRLogger.d(TAG, "Pattern length: ${pattern.size}")
             
             // 发射信号
-            irManager?.transmit(CARRIER_FREQUENCY, pattern)
+            val frequency = getBestFrequency()
+            irManager?.transmit(frequency, pattern)
             
             EmitResult(
                 success = true,
                 keyName = "0x${keyCode.toString(16).uppercase()}",
-                message = "信号发送成功"
+                message = "信号发送成功 (${frequency}Hz)\n" +
+                        "Header=${String.format("%04X", header)} Cmd=${String.format("%02X", keyCode and 0xFF)}"
             )
         } catch (e: Exception) {
             IRLogger.e(TAG, "Failed to emit IR signal", e)
@@ -150,7 +152,11 @@ class NECIREmitter(context: Context) : IIREmitter {
      * CVTE工厂遥控器数据格式: 
      * [Header 16bit] + [Command 8bit] + [Command Inverse 8bit]
      * 
-     * 标准NEC扩展协议，Header为客户码(16位)，Command为8位命令+8位反码
+     * 发射顺序:
+     * 1. Header High Byte (0x88)
+     * 2. Header Low Byte (0x90)
+     * 3. Command Code (0x01)
+     * 4. Command Inverse (0xFE)
      * 
      * @param header 协议头/客户码 (16位，如0x8890)
      * @param keyCode 按键码值 (8位有效，如0x01)
@@ -159,46 +165,93 @@ class NECIREmitter(context: Context) : IIREmitter {
     private fun encodeNEC(header: Int, keyCode: Int): IntArray {
         val pattern = mutableListOf<Int>()
         
+        // 1. 添加起始码 (Leader)
+        pattern.add(HEADER_PULSE)
+        pattern.add(HEADER_SPACE)
+        
+        // 2. 编码Header High Byte (8位, LSB优先)
+        val headerHigh = (header shr 8) and 0xFF
+        for (i in 0 until 8) {
+            val bit = (headerHigh shr i) and 0x01
+            pattern.add(BIT_PULSE)
+            pattern.add(if (bit == 1) BIT_1_SPACE else BIT_0_SPACE)
+        }
+        
+        // 3. 编码Header Low Byte (8位, LSB优先)
+        val headerLow = header and 0xFF
+        for (i in 0 until 8) {
+            val bit = (headerLow shr i) and 0x01
+            pattern.add(BIT_PULSE)
+            pattern.add(if (bit == 1) BIT_1_SPACE else BIT_0_SPACE)
+        }
+        
         // 提取8位命令码
         val command = keyCode and 0xFF
         // 计算命令反码
         val commandInverse = command.inv() and 0xFF
         
-        IRLogger.d(TAG, "NEC Encoding: header=0x${header.toString(16).uppercase()}, " +
-                "cmd=0x${command.toString(16).uppercase()}, " +
-                "cmdInv=0x${commandInverse.toString(16).uppercase()}")
+        IRLogger.d(TAG, "NEC Encoding: Header=${String.format("%04X", header)} " +
+                "(H=${String.format("%02X", headerHigh)} L=${String.format("%02X", headerLow)}), " +
+                "Cmd=${String.format("%02X", command)}, " +
+                "Inv=${String.format("%02X", commandInverse)}")
         
-        // 1. 添加起始码 (Leader)
-        pattern.add(HEADER_PULSE)
-        pattern.add(HEADER_SPACE)
-        
-        // 2. 编码Header/Address (16位, LSB优先)
-        for (i in 0 until 16) {
-            val bit = (header shr i) and 0x01
-            pattern.add(BIT_PULSE)
-            pattern.add(if (bit == 1) BIT_1_SPACE else BIT_0_SPACE)
-        }
-        
-        // 3. 编码Command (8位, LSB优先)
+        // 4. 编码Command (8位, LSB优先)
         for (i in 0 until 8) {
             val bit = (command shr i) and 0x01
             pattern.add(BIT_PULSE)
             pattern.add(if (bit == 1) BIT_1_SPACE else BIT_0_SPACE)
         }
         
-        // 4. 编码Command Inverse (8位, LSB优先)
+        // 5. 编码Command Inverse (8位, LSB优先)
         for (i in 0 until 8) {
             val bit = (commandInverse shr i) and 0x01
             pattern.add(BIT_PULSE)
             pattern.add(if (bit == 1) BIT_1_SPACE else BIT_0_SPACE)
         }
         
-        // 5. 添加结束位 (Stop bit)
+        // 6. 添加结束位 (Stop bit)
         pattern.add(STOP_PULSE)
         
         IRLogger.d(TAG, "Pattern generated: ${pattern.size} elements")
         
         return pattern.toIntArray()
+    }
+    
+    /**
+     * 获取最佳载波频率
+     * 优先使用 38kHz，如果不支持则使用最接近的频率
+     */
+    private fun getBestFrequency(): Int {
+        val targetFreq = CARRIER_FREQUENCY
+        val ranges = getCarrierFrequencies()
+        
+        if (ranges.isEmpty()) return targetFreq
+        
+        // 检查是否包含目标频率
+        for (range in ranges) {
+            if (targetFreq in range) return targetFreq
+        }
+        
+        // 寻找最接近的频率
+        var bestFreq = ranges[0].start
+        var minDiff = Int.MAX_VALUE
+        
+        for (range in ranges) {
+            val diffStart = Math.abs(range.start - targetFreq)
+            val diffEnd = Math.abs(range.endInclusive - targetFreq)
+            
+            if (diffStart < minDiff) {
+                minDiff = diffStart
+                bestFreq = range.start
+            }
+            if (diffEnd < minDiff) {
+                minDiff = diffEnd
+                bestFreq = range.endInclusive
+            }
+        }
+        
+        IRLogger.i(TAG, "Selected frequency: $bestFreq Hz (Target: $targetFreq Hz)")
+        return bestFreq
     }
     
     /**
