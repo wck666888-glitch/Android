@@ -277,6 +277,10 @@ class ConfigRepository private constructor(private val context: Context) {
             IRKey("KEY_HELP", 0x004d, "帮助", KeyCategory.FUNCTION),
             IRKey("KEY_ZOOM", 0x0051, "缩放", KeyCategory.FUNCTION),
             IRKey("KEY_RECORD", 0x0059, "录制", KeyCategory.FUNCTION),
+            IRKey("KEY_MEDIA", 0x0009, "媒体", KeyCategory.FUNCTION),
+            IRKey("KEY_DIRECTION", 0x000d, "画面模式", KeyCategory.FUNCTION),
+            IRKey("KEY_FN_F1", 0x0055, "MTS", KeyCategory.FUNCTION),
+            IRKey("KEY_KP1", 0x0040, "KP1", KeyCategory.FUNCTION),
             
             // 颜色快捷键
             IRKey("KEY_RED", 0x001d, "红", KeyCategory.COLOR),
@@ -293,8 +297,11 @@ class ConfigRepository private constructor(private val context: Context) {
             IRKey("KEY_F15", 0x00a2, "清除HDCP", KeyCategory.FACTORY),
             IRKey("KEY_F16", 0x00a3, "清除MAC", KeyCategory.FACTORY),
             IRKey("KEY_F17", 0x00a4, "清除CIPLUS", KeyCategory.FACTORY),
-            IRKey("KEY_MEDIA", 0x0009, "媒体", KeyCategory.FUNCTION),
-            IRKey("KEY_DIRECTION", 0x000d, "画面模式", KeyCategory.FUNCTION)
+            IRKey("KEY_F1", 0x0004, "F1", KeyCategory.FACTORY),
+            IRKey("KEY_F1_ALT", 0x0014, "F1备用", KeyCategory.FACTORY),
+            IRKey("KEY_FN_B", 0x000f, "FN_B", KeyCategory.FACTORY),
+            IRKey("KEY_TOUCHPAD_TOGGLE", 0x000c, "触控切换", KeyCategory.FACTORY),
+            IRKey("KEY_BRL_DOT2", 0x0019, "ADC校准", KeyCategory.FACTORY)
         )
         
         return IRConfig(

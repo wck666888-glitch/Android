@@ -61,6 +61,60 @@
                 app:iconTint="@color/on_primary" />
         </LinearLayout>
 
+        <!-- 媒体功能键区域 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_small"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_small">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMedia"
+                    style="@style/RemoteButton.Function"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/function_button_height"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:text="@string/btn_media" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPmode"
+                    style="@style/RemoteButton.Function"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/function_button_height"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:text="@string/btn_pmode" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMts"
+                    style="@style/RemoteButton.Function"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/function_button_height"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:text="@string/btn_mts" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRecord"
+                    style="@style/RemoteButton.Function"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/function_button_height"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:text="@string/btn_record" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
         <!-- 数字键盘区域 -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -398,6 +452,220 @@
                         android:layout_marginStart="2dp"
                         android:layout_weight="1"
                         android:text="@string/btn_blue" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 辅助功能键区域 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_small"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_small">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnHelp"
+                    style="@style/RemoteButton.Function"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/function_button_height"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:text="@string/btn_help" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnZoom"
+                    style="@style/RemoteButton.Function"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/function_button_height"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:text="@string/btn_zoom" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnKp1"
+                    style="@style/RemoteButton.Function"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/function_button_height"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:text="@string/btn_kp1" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 工厂测试键区域 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_small"
+            app:cardBackgroundColor="#2D2D2D"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_small">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/factory_section_title"
+                    android:textColor="@color/color_yellow"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold"
+                    android:paddingBottom="@dimen/margin_small" />
+
+                <!-- 工厂键第一行 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnFacReset"
+                        style="@style/RemoteButton.Factory"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/function_button_height"
+                        android:layout_marginEnd="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_fac_reset" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnFacMenu"
+                        style="@style/RemoteButton.Factory"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/function_button_height"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_fac_menu" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnFacVersion"
+                        style="@style/RemoteButton.Factory"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/function_button_height"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_fac_version" />
+                </LinearLayout>
+
+                <!-- 工厂键第二行 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnFacAuto"
+                        style="@style/RemoteButton.Factory"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/function_button_height"
+                        android:layout_marginEnd="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_fac_auto" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnFacAging"
+                        style="@style/RemoteButton.Factory"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/function_button_height"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_fac_aging" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnFacAdc"
+                        style="@style/RemoteButton.Factory"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/function_button_height"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_fac_adc" />
+                </LinearLayout>
+
+                <!-- 工厂键第三行: 清除功能 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnFacHdcp"
+                        style="@style/RemoteButton.Factory"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/function_button_height"
+                        android:layout_marginEnd="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_fac_hdcp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnFacMac"
+                        style="@style/RemoteButton.Factory"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/function_button_height"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_fac_mac" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnFacCiplus"
+                        style="@style/RemoteButton.Factory"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/function_button_height"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_fac_ciplus" />
+                </LinearLayout>
+
+                <!-- 工厂键第四行 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnFacF1"
+                        style="@style/RemoteButton.Factory"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/function_button_height"
+                        android:layout_marginEnd="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_fac_f1" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnFacFnb"
+                        style="@style/RemoteButton.Factory"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/function_button_height"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_fac_fnb" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnFacTouchpad"
+                        style="@style/RemoteButton.Factory"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/function_button_height"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/btn_fac_touchpad" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>

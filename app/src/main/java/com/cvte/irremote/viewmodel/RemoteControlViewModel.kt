@@ -159,6 +159,33 @@ class RemoteControlViewModel(application: Application) : AndroidViewModel(applic
     fun emitBlue() = emitKey("KEY_BLUE")
     
     /**
+     * 发射媒体/功能键
+     */
+    fun emitMedia() = emitKey("KEY_MEDIA")
+    fun emitPictureMode() = emitKey("KEY_DIRECTION")
+    fun emitMts() = emitKey("KEY_FN_F1")
+    fun emitKp1() = emitKey("KEY_KP1")
+    fun emitHelp() = emitKey("KEY_HELP")
+    fun emitZoom() = emitKey("KEY_ZOOM")
+    fun emitRecord() = emitKey("KEY_RECORD")
+    
+    /**
+     * 发射工厂测试键
+     */
+    fun emitFacReset() = emitKey("KEY_FN_F")
+    fun emitFacMenu() = emitKey("KEY_FN_E")
+    fun emitFacAutoTuning() = emitKey("KEY_F13")
+    fun emitFacAging() = emitKey("KEY_PROG3")
+    fun emitFacVersion() = emitKey("KEY_F14")
+    fun emitFacEraseHdcp() = emitKey("KEY_F15")
+    fun emitFacEraseMac() = emitKey("KEY_F16")
+    fun emitFacEraseCiplus() = emitKey("KEY_F17")
+    fun emitFacF1() = emitKey("KEY_F1")
+    fun emitFacFnB() = emitKey("KEY_FN_B")
+    fun emitFacTouchpad() = emitKey("KEY_TOUCHPAD_TOGGLE")
+    fun emitFacAdc() = emitKey("KEY_BRL_DOT2")
+    
+    /**
      * 获取所有配置列表
      */
     fun getAllConfigs(): List<IRConfig> = configRepository.getAllConfigs()

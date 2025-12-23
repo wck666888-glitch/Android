@@ -108,6 +108,31 @@ class RemoteControlActivity : AppCompatActivity() {
         binding.btnGreen.setOnClickListener { vibrateAndEmit { viewModel.emitGreen() } }
         binding.btnYellow.setOnClickListener { vibrateAndEmit { viewModel.emitYellow() } }
         binding.btnBlue.setOnClickListener { vibrateAndEmit { viewModel.emitBlue() } }
+        
+        // 媒体/功能键
+        binding.btnMedia.setOnClickListener { vibrateAndEmit { viewModel.emitMedia() } }
+        binding.btnPmode.setOnClickListener { vibrateAndEmit { viewModel.emitPictureMode() } }
+        binding.btnMts.setOnClickListener { vibrateAndEmit { viewModel.emitMts() } }
+        binding.btnRecord.setOnClickListener { vibrateAndEmit { viewModel.emitRecord() } }
+        
+        // 辅助功能键
+        binding.btnHelp.setOnClickListener { vibrateAndEmit { viewModel.emitHelp() } }
+        binding.btnZoom.setOnClickListener { vibrateAndEmit { viewModel.emitZoom() } }
+        binding.btnKp1.setOnClickListener { vibrateAndEmit { viewModel.emitKp1() } }
+        
+        // 工厂测试键
+        binding.btnFacReset.setOnClickListener { vibrateAndEmit { viewModel.emitFacReset() } }
+        binding.btnFacMenu.setOnClickListener { vibrateAndEmit { viewModel.emitFacMenu() } }
+        binding.btnFacVersion.setOnClickListener { vibrateAndEmit { viewModel.emitFacVersion() } }
+        binding.btnFacAuto.setOnClickListener { vibrateAndEmit { viewModel.emitFacAutoTuning() } }
+        binding.btnFacAging.setOnClickListener { vibrateAndEmit { viewModel.emitFacAging() } }
+        binding.btnFacAdc.setOnClickListener { vibrateAndEmit { viewModel.emitFacAdc() } }
+        binding.btnFacHdcp.setOnClickListener { vibrateAndEmit { viewModel.emitFacEraseHdcp() } }
+        binding.btnFacMac.setOnClickListener { vibrateAndEmit { viewModel.emitFacEraseMac() } }
+        binding.btnFacCiplus.setOnClickListener { vibrateAndEmit { viewModel.emitFacEraseCiplus() } }
+        binding.btnFacF1.setOnClickListener { vibrateAndEmit { viewModel.emitFacF1() } }
+        binding.btnFacFnb.setOnClickListener { vibrateAndEmit { viewModel.emitFacFnB() } }
+        binding.btnFacTouchpad.setOnClickListener { vibrateAndEmit { viewModel.emitFacTouchpad() } }
     }
     
     /**

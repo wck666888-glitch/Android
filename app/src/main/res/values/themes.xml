@@ -124,6 +124,16 @@
         <item name="backgroundTint">@color/button_blue</item>
     </style>
 
+    <!-- Factory Button Style -->
+    <style name="RemoteButton.Factory">
+        <item name="backgroundTint">#FF6B00</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="cornerRadius">6dp</item>
+        <item name="android:minWidth">60dp</item>
+        <item name="android:minHeight">40dp</item>
+    </style>
+
     <!-- Dialog Theme -->
     <style name="Theme.IRRemote.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
         <item name="colorPrimary">@color/primary</item>
