@@ -23,7 +23,7 @@
     <!-- Direction Buttons -->
     <dimen name="direction_button_size">64dp</dimen>
     <dimen name="ok_button_size">70dp</dimen>
-    <dimen name="dpad_container_size">200dp</dimen>
+    <dimen name="dpad_container_size">160dp</dimen>
 
     <!-- Function Buttons -->
     <dimen name="function_button_width">72dp</dimen>
