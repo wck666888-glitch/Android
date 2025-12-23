@@ -520,7 +520,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/factory_section_title"
-                    android:textColor="@color/color_yellow"
+                    android:textColor="@color/button_yellow"
                     android:textSize="@dimen/text_size_small"
                     android:textStyle="bold"
                     android:paddingBottom="@dimen/margin_small" />
