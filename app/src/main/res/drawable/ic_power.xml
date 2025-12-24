@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Power icon - modern rounded style -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,3C12.55,3 13,3.45 13,4L13,12C13,12.55 12.55,13 12,13C11.45,13 11,12.55 11,12L11,4C11,3.45 11.45,3 12,3Z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M5.64,6.64C6.03,6.25 6.66,6.25 7.05,6.64C7.44,7.03 7.44,7.66 7.05,8.05C5.76,9.34 5,11.08 5,13C5,16.87 8.13,20 12,20C15.87,20 19,16.87 19,13C19,11.08 18.24,9.34 16.95,8.05C16.56,7.66 16.56,7.03 16.95,6.64C17.34,6.25 17.97,6.25 18.36,6.64C20.01,8.29 21,10.54 21,13C21,17.97 16.97,22 12,22C7.03,22 3,17.97 3,13C3,10.54 3.99,8.29 5.64,6.64Z"/>
+</vector>

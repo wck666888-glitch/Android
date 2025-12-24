@@ -1,13 +1,13 @@
 {
     "id": "cvte_factory",
     "name": "CVTE工厂遥控器",
-    "description": "CVTE TV工厂测试遥控器配置 (完整版)",
+    "description": "CVTE TV工厂测试遥控器配置 (标准修正版)",
     "protocol": 1,
-    "header": 36900,
+    "header": 34960,
     "is_default": true,
-    "version": "1.1",
+    "version": "1.2",
     "created_at": 1703232000000,
-    "updated_at": 1735004011000,
+    "updated_at": 1735010000000,
     "keys": [
         {
             "key_name": "KEY_POWER",
@@ -232,73 +232,73 @@
             "category": "color"
         },
         {
-            "key_name": "KEY_FAC_RESET",
+            "key_name": "KEY_FN_F",
             "key_code": 8,
             "display_name": "FAC复位",
             "category": "factory"
         },
         {
-            "key_name": "KEY_FAC_MENU",
+            "key_name": "KEY_FN_E",
             "key_code": 24,
             "display_name": "工厂菜单",
             "category": "factory"
         },
         {
-            "key_name": "KEY_FAC_AUTO",
+            "key_name": "KEY_F13",
             "key_code": 10,
             "display_name": "自动调台",
             "category": "factory"
         },
         {
-            "key_name": "KEY_FAC_AGING",
+            "key_name": "KEY_PROG3",
             "key_code": 11,
             "display_name": "老化测试",
             "category": "factory"
         },
         {
-            "key_name": "KEY_FAC_VERSION",
+            "key_name": "KEY_F14",
             "key_code": 14,
             "display_name": "版本号",
             "category": "factory"
         },
         {
-            "key_name": "KEY_FAC_HDCP",
+            "key_name": "KEY_F15",
             "key_code": 162,
             "display_name": "清除HDCP",
             "category": "factory"
         },
         {
-            "key_name": "KEY_FAC_MAC",
+            "key_name": "KEY_F16",
             "key_code": 163,
             "display_name": "清除MAC",
             "category": "factory"
         },
         {
-            "key_name": "KEY_FAC_CIPLUS",
+            "key_name": "KEY_F17",
             "key_code": 164,
             "display_name": "清除CIPLUS",
             "category": "factory"
         },
         {
-            "key_name": "KEY_FAC_F1",
+            "key_name": "KEY_F1",
             "key_code": 4,
             "display_name": "F1",
             "category": "factory"
         },
         {
-            "key_name": "KEY_FAC_FNB",
+            "key_name": "KEY_FN_B",
             "key_code": 15,
             "display_name": "FN_B",
             "category": "factory"
         },
         {
-            "key_name": "KEY_FAC_TOUCHPAD",
+            "key_name": "KEY_TOUCHPAD_TOGGLE",
             "key_code": 12,
             "display_name": "触控切换",
             "category": "factory"
         },
         {
-            "key_name": "KEY_FAC_ADC",
+            "key_name": "KEY_BRL_DOT2",
             "key_code": 25,
             "display_name": "ADC校准",
             "category": "factory"

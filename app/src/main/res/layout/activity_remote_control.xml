@@ -38,7 +38,7 @@
                 android:layout_height="48dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/menu_settings"
-                android:src="@android:drawable/ic_menu_manage"
+                android:src="@drawable/ic_settings"
                 app:tint="@color/text_primary" />
         </LinearLayout>
 
@@ -56,9 +56,9 @@
                 android:layout_width="@dimen/power_button_size"
                 android:layout_height="@dimen/power_button_size"
                 android:text="@string/btn_power"
-                app:icon="@android:drawable/ic_lock_power_off"
+                app:icon="@drawable/ic_power"
                 app:iconGravity="top"
-                app:iconTint="@color/on_primary" />
+                app:iconTint="@color/text_on_colored" />
         </LinearLayout>
 
         <!-- 媒体功能键区域 -->
@@ -66,9 +66,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin_small"
-            app:cardBackgroundColor="@color/surface"
-            app:cardCornerRadius="@dimen/card_corner_radius"
-            app:cardElevation="@dimen/card_elevation">
+            app:cardBackgroundColor="@color/card_background"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -120,9 +120,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin_small"
-            app:cardBackgroundColor="@color/surface"
-            app:cardCornerRadius="@dimen/card_corner_radius"
-            app:cardElevation="@dimen/card_elevation">
+            app:cardBackgroundColor="@color/card_background"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp">
 
             <GridLayout
                 android:id="@+id/gridNumbers"
@@ -242,9 +242,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin_small"
-            app:cardBackgroundColor="@color/surface"
-            app:cardCornerRadius="@dimen/card_corner_radius"
-            app:cardElevation="@dimen/card_elevation">
+            app:cardBackgroundColor="@color/card_background"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -373,9 +373,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin_small"
-            app:cardBackgroundColor="@color/surface"
-            app:cardCornerRadius="@dimen/card_corner_radius"
-            app:cardElevation="@dimen/card_elevation">
+            app:cardBackgroundColor="@color/card_background"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -461,9 +461,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin_small"
-            app:cardBackgroundColor="@color/surface"
-            app:cardCornerRadius="@dimen/card_corner_radius"
-            app:cardElevation="@dimen/card_elevation">
+            app:cardBackgroundColor="@color/card_background"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -506,9 +506,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin_small"
-            app:cardBackgroundColor="#2D2D2D"
-            app:cardCornerRadius="@dimen/card_corner_radius"
-            app:cardElevation="@dimen/card_elevation">
+            app:cardBackgroundColor="@color/factory_background"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -520,7 +520,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/factory_section_title"
-                    android:textColor="@color/button_yellow"
+                    android:textColor="@color/factory_text"
                     android:textSize="@dimen/text_size_small"
                     android:textStyle="bold"
                     android:paddingBottom="@dimen/margin_small" />

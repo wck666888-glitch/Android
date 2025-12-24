@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Volume down icon - modern style -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M5,9V15H9L14,20V4L9,9H5ZM18.5,12C18.5,10.12 17.41,8.5 15.8,7.68V16.31C17.41,15.5 18.5,13.88 18.5,12Z"/>
+</vector>

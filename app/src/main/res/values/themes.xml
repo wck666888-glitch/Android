@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base Theme -->
-    <style name="Theme.IRRemote" parent="Theme.Material3.Dark.NoActionBar">
+    <!-- Base Theme - Modern Light -->
+    <style name="Theme.IRRemote" parent="Theme.Material3.Light.NoActionBar">
         <!-- Primary Colors -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
@@ -16,9 +16,11 @@
         <item name="colorSurface">@color/surface</item>
         <item name="colorOnSurface">@color/on_surface</item>
 
-        <!-- Status Bar -->
+        <!-- Status Bar - Light style -->
         <item name="android:statusBarColor">@color/background</item>
         <item name="android:navigationBarColor">@color/background</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
     </style>
 
     <!-- Remote Button Base Style -->
@@ -28,21 +30,29 @@
         <item name="cornerRadius">12dp</item>
         <item name="android:minWidth">60dp</item>
         <item name="android:minHeight">60dp</item>
-        <item name="android:elevation">4dp</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="rippleColor">@color/ripple_dark</item>
     </style>
 
-    <!-- Power Button Style -->
+    <!-- Power Button Style - Red Gradient -->
     <style name="RemoteButton.Power">
-        <item name="backgroundTint">@color/button_power</item>
+        <item name="android:background">@drawable/bg_button_power</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:textColor">@color/text_on_colored</item>
         <item name="android:textSize">14sp</item>
-        <item name="cornerRadius">30dp</item>
+        <item name="cornerRadius">32dp</item>
         <item name="android:minWidth">64dp</item>
         <item name="android:minHeight">64dp</item>
+        <item name="android:elevation">4dp</item>
+        <item name="iconTint">@color/text_on_colored</item>
     </style>
 
-    <!-- Number Button Style -->
+    <!-- Number Button Style - Light Gray -->
     <style name="RemoteButton.Number">
-        <item name="backgroundTint">@color/button_number</item>
+        <item name="android:background">@drawable/bg_button_number</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
         <item name="cornerRadius">16dp</item>
@@ -50,51 +60,64 @@
         <item name="android:minHeight">56dp</item>
     </style>
 
-    <!-- Direction Button Style -->
+    <!-- Direction Button Style - Subtle Gray -->
     <style name="RemoteButton.Direction">
-        <item name="backgroundTint">@color/button_direction</item>
+        <item name="android:background">@drawable/bg_button_direction</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">24sp</item>
         <item name="cornerRadius">12dp</item>
         <item name="android:minWidth">64dp</item>
         <item name="android:minHeight">64dp</item>
     </style>
 
-    <!-- OK Button Style (Center of D-pad) -->
+    <!-- OK Button Style - Blue Gradient -->
     <style name="RemoteButton.OK">
-        <item name="backgroundTint">@color/button_ok</item>
+        <item name="android:background">@drawable/bg_button_primary</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:textColor">@color/text_on_colored</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
         <item name="cornerRadius">35dp</item>
         <item name="android:minWidth">70dp</item>
         <item name="android:minHeight">70dp</item>
+        <item name="android:elevation">4dp</item>
     </style>
 
-    <!-- Function Button Style -->
+    <!-- Function Button Style - Light -->
     <style name="RemoteButton.Function">
-        <item name="backgroundTint">@color/button_function</item>
+        <item name="android:background">@drawable/bg_button_function</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">12sp</item>
         <item name="cornerRadius">8dp</item>
         <item name="android:minWidth">72dp</item>
         <item name="android:minHeight">48dp</item>
     </style>
 
-    <!-- Volume Button Style -->
+    <!-- Volume Button Style - Purple Gradient -->
     <style name="RemoteButton.Volume">
-        <item name="backgroundTint">@color/button_volume</item>
+        <item name="android:background">@drawable/bg_button_volume</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:textColor">@color/text_on_colored</item>
         <item name="android:textSize">14sp</item>
         <item name="cornerRadius">8dp</item>
     </style>
 
-    <!-- Channel Button Style -->
+    <!-- Channel Button Style - Teal Gradient -->
     <style name="RemoteButton.Channel">
-        <item name="backgroundTint">@color/button_channel</item>
+        <item name="android:background">@drawable/bg_button_channel</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:textColor">@color/text_on_colored</item>
         <item name="android:textSize">14sp</item>
         <item name="cornerRadius">8dp</item>
     </style>
 
-    <!-- Mute Button Style -->
+    <!-- Mute Button Style - Amber Gradient -->
     <style name="RemoteButton.Mute">
-        <item name="backgroundTint">@color/button_mute</item>
+        <item name="android:background">@drawable/bg_button_mute</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:textColor">@color/text_on_colored</item>
         <item name="android:textSize">12sp</item>
         <item name="cornerRadius">24dp</item>
     </style>
@@ -102,33 +125,37 @@
     <!-- Color Buttons -->
     <style name="RemoteButton.Color">
         <item name="android:textSize">12sp</item>
-        <item name="cornerRadius">4dp</item>
+        <item name="cornerRadius">8dp</item>
         <item name="android:minWidth">60dp</item>
-        <item name="android:minHeight">32dp</item>
+        <item name="android:minHeight">36dp</item>
+        <item name="android:elevation">2dp</item>
     </style>
 
     <style name="RemoteButton.Color.Red">
         <item name="backgroundTint">@color/button_red</item>
+        <item name="android:textColor">@color/text_on_colored</item>
     </style>
 
     <style name="RemoteButton.Color.Green">
         <item name="backgroundTint">@color/button_green</item>
+        <item name="android:textColor">@color/text_on_colored</item>
     </style>
 
     <style name="RemoteButton.Color.Yellow">
         <item name="backgroundTint">@color/button_yellow</item>
-        <item name="android:textColor">#000000</item>
+        <item name="android:textColor">@color/text_primary</item>
     </style>
 
     <style name="RemoteButton.Color.Blue">
         <item name="backgroundTint">@color/button_blue</item>
+        <item name="android:textColor">@color/text_on_colored</item>
     </style>
 
-    <!-- Factory Button Style -->
+    <!-- Factory Button Style - Orange Warning -->
     <style name="RemoteButton.Factory">
         <item name="backgroundTint">#FF6B00</item>
         <item name="android:textSize">10sp</item>
-        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textColor">@color/text_on_colored</item>
         <item name="cornerRadius">6dp</item>
         <item name="android:minWidth">60dp</item>
         <item name="android:minHeight">40dp</item>
@@ -138,5 +165,12 @@
     <style name="Theme.IRRemote.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorSurface">@color/surface</item>
+    </style>
+
+    <!-- Card Style -->
+    <style name="Widget.IRRemote.CardView" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/card_background</item>
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">4dp</item>
     </style>
 </resources>
