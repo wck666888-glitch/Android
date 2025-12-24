@@ -23,8 +23,8 @@
     <string name="btn_right">►</string>
     <string name="btn_vol_up">音量+</string>
     <string name="btn_vol_down">音量-</string>
-    <string name="btn_ch_up">频道+</string>
-    <string name="btn_ch_down">频道-</string>
+    <string name="btn_ch_up">CH+</string>
+    <string name="btn_ch_down">CH-</string>
     <string name="btn_info">信息</string>
     <string name="btn_subtitle">字幕</string>
     <string name="btn_record">录制</string>

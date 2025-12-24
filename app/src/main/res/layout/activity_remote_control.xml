@@ -29,7 +29,7 @@
                 android:layout_weight="1"
                 android:text="@string/app_name"
                 android:textColor="@color/text_primary"
-                android:textSize="@dimen/text_size_large"
+                android:textSize="@dimen/text_size_title"
                 android:textStyle="bold" />
 
             <ImageButton
@@ -53,11 +53,10 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnPower"
                 style="@style/RemoteButton.Power"
-                android:layout_width="@dimen/power_button_size"
-                android:layout_height="@dimen/power_button_size"
-                android:text="@string/btn_power"
+                android:layout_width="79dp"
+                android:layout_height="79dp"
                 app:icon="@drawable/ic_power"
-                app:iconGravity="top"
+                app:iconGravity="textStart"
                 app:iconTint="@color/text_on_colored" />
         </LinearLayout>
 
@@ -265,7 +264,9 @@
                         style="@style/RemoteButton.Volume"
                         android:layout_width="@dimen/vol_ch_button_width"
                         android:layout_height="@dimen/vol_ch_button_height"
-                        android:text="@string/btn_vol_up" />
+                        app:icon="@drawable/ic_volume_up"
+                        app:iconGravity="textStart"
+                        app:iconTint="@color/text_on_colored" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnMute"
@@ -273,14 +274,18 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_marginVertical="4dp"
-                        android:text="@string/btn_mute" />
+                        app:icon="@drawable/ic_mute"
+                        app:iconGravity="textStart"
+                        app:iconTint="@color/text_on_colored" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnVolDown"
                         style="@style/RemoteButton.Volume"
                         android:layout_width="@dimen/vol_ch_button_width"
                         android:layout_height="@dimen/vol_ch_button_height"
-                        android:text="@string/btn_vol_down" />
+                        app:icon="@drawable/ic_volume_down"
+                        app:iconGravity="textStart"
+                        app:iconTint="@color/text_on_colored" />
                 </LinearLayout>
 
                 <!-- 方向键 D-Pad -->
@@ -306,7 +311,9 @@
                         android:layout_width="@dimen/direction_button_size"
                         android:layout_height="@dimen/direction_button_size"
                         android:layout_gravity="top|center_horizontal"
-                        android:text="@string/btn_up" />
+                        app:icon="@drawable/ic_arrow_up"
+                        app:iconGravity="textStart"
+                        app:iconTint="@color/text_primary" />
 
                     <!-- 下 -->
                     <com.google.android.material.button.MaterialButton
@@ -315,7 +322,9 @@
                         android:layout_width="@dimen/direction_button_size"
                         android:layout_height="@dimen/direction_button_size"
                         android:layout_gravity="bottom|center_horizontal"
-                        android:text="@string/btn_down" />
+                        app:icon="@drawable/ic_arrow_down"
+                        app:iconGravity="textStart"
+                        app:iconTint="@color/text_primary" />
 
                     <!-- 左 -->
                     <com.google.android.material.button.MaterialButton
@@ -324,7 +333,9 @@
                         android:layout_width="@dimen/direction_button_size"
                         android:layout_height="@dimen/direction_button_size"
                         android:layout_gravity="center_vertical|start"
-                        android:text="@string/btn_left" />
+                        app:icon="@drawable/ic_arrow_left"
+                        app:iconGravity="textStart"
+                        app:iconTint="@color/text_primary" />
 
                     <!-- 右 -->
                     <com.google.android.material.button.MaterialButton
@@ -333,7 +344,9 @@
                         android:layout_width="@dimen/direction_button_size"
                         android:layout_height="@dimen/direction_button_size"
                         android:layout_gravity="center_vertical|end"
-                        android:text="@string/btn_right" />
+                        app:icon="@drawable/ic_arrow_right"
+                        app:iconGravity="textStart"
+                        app:iconTint="@color/text_primary" />
                 </FrameLayout>
 
                 <!-- 频道控制 -->
@@ -356,7 +369,9 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_marginVertical="4dp"
-                        android:text="@string/btn_home" />
+                        app:icon="@drawable/ic_home"
+                        app:iconGravity="textStart"
+                        app:iconTint="@color/text_primary" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnChDown"
