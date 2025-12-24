@@ -86,8 +86,8 @@ class CustomScannerActivity : AppCompatActivity() {
         val animation = android.view.animation.TranslateAnimation(
             android.view.animation.Animation.RELATIVE_TO_PARENT, 0.0f,
             android.view.animation.Animation.RELATIVE_TO_PARENT, 0.0f,
-            android.view.animation.Animation.RELATIVE_TO_PARENT, 0.0f,
-            android.view.animation.Animation.RELATIVE_TO_PARENT, 1.0f
+            android.view.animation.Animation.RELATIVE_TO_PARENT, 0.3f,
+            android.view.animation.Animation.RELATIVE_TO_PARENT, 0.7f
         )
         animation.duration = 3000 // 稍微放慢速度适配全屏
         animation.repeatCount = android.view.animation.Animation.INFINITE
