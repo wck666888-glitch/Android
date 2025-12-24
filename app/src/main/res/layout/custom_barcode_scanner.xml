@@ -8,13 +8,4 @@
         android:layout_height="match_parent"
         app:zxing_use_texture_view="true" />
 
-    <com.journeyapps.barcodescanner.ViewfinderView
-        android:id="@+id/zxing_viewfinder_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:zxing_possible_result_points="@color/primary"
-        app:zxing_result_view="@android:color/transparent"
-        app:zxing_viewfinder_laser="@android:color/transparent"
-        app:zxing_viewfinder_mask="@android:color/transparent" />
-
 </merge>
