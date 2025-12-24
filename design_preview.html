@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IR Remote UI - Antigravity Design Preview</title>
+    <style>
+        :root {
+            --background: #F8F9FA;
+            --surface: #FFFFFF;
+            --text-primary: #212121;
+            --text-secondary: #757575;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --card-radius: 20px;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: var(--background);
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .phone-frame {
+            width: 360px;
+            background-color: var(--background);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 16px;
+            gap: 16px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 8px;
+        }
+
+        .header h1 {
+            font-size: 20px;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .section-card {
+            background-color: var(--surface);
+            border-radius: var(--card-radius);
+            box-shadow: var(--card-shadow);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.1s;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        .btn-power {
+            width: 64px;
+            height: 64px;
+            border-radius: 32px;
+            background: linear-gradient(135deg, #EF5350, #E53935, #D32F2F);
+            box-shadow: 0 4px 6px rgba(229, 57, 53, 0.3);
+            margin: 0 auto;
+        }
+
+        .btn-number {
+            flex: 1;
+            height: 56px;
+            background: #F5F5F5;
+            color: var(--text-primary);
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 16px;
+        }
+
+        .btn-func {
+            flex: 1;
+            height: 48px;
+            background: #EEEEEE;
+            color: var(--text-primary);
+            font-size: 12px;
+            border-radius: 8px;
+        }
+
+        .btn-vol {
+            width: 64px;
+            height: 48px;
+            background: linear-gradient(135deg, #9C27B0, #7B1FA2, #6A1B9A);
+            border-radius: 8px;
+        }
+
+        .btn-ch {
+            width: 64px;
+            height: 48px;
+            background: linear-gradient(135deg, #26A69A, #00897B, #00796B);
+            border-radius: 8px;
+        }
+
+        .btn-ok {
+            width: 70px;
+            height: 70px;
+            border-radius: 35px;
+            background: linear-gradient(135deg, #42A5F5, #1976D2, #1565C0);
+            box-shadow: 0 4px 6px rgba(25, 118, 210, 0.3);
+            z-index: 10;
+        }
+
+        .dpad-container {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-dir {
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            background: #ECEFF1;
+            color: var(--text-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-dir svg { fill: #424242; }
+
+        .dir-up { top: 0; }
+        .dir-down { bottom: 0; }
+        .dir-left { left: 0; }
+        .dir-right { right: 0; }
+
+        .btn-mute {
+            width: 48px;
+            height: 48px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, #FFB300, #FFA000, #FF8F00);
+            margin: 4px 0;
+        }
+
+        .color-row .btn {
+            height: 32px;
+            border-radius: 8px;
+        }
+
+        .btn-red { background: #F44336; }
+        .btn-green { background: #4CAF50; }
+        .btn-yellow { background: #FFC107; color: #000; }
+        .btn-blue { background: #2196F3; }
+
+        .factory-card {
+            background-color: #FFF3E0;
+        }
+
+        .factory-title {
+            color: #E65100;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .btn-factory {
+            height: 40px;
+            background: #FF6B00;
+            font-size: 10px;
+            border-radius: 6px;
+        }
+
+        /* SVG Styles */
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+        .white-icon { fill: white; }
+        .dark-icon { fill: #424242; }
+
+    </style>
+</head>
+<body>
+    <div class="phone-frame">
+        <!-- Header -->
+        <div class="header">
+            <h1>TV IR Remote</h1>
+            <button class="icon-btn">
+                <svg viewBox="0 0 24 24" class="dark-icon"><path d="M19.14,12.94C19.18,12.64 19.2,12.33 19.2,12C19.2,11.67 19.18,11.36 19.13,11.06L21.16,9.48C21.34,9.34 21.39,9.07 21.28,8.87L19.36,5.55C19.24,5.33 18.99,5.26 18.77,5.33L16.38,6.29C15.88,5.91 15.35,5.59 14.76,5.35L14.4,2.81C14.36,2.57 14.16,2.4 13.92,2.4L10.08,2.4C9.84,2.4 9.65,2.57 9.61,2.81L9.25,5.35C8.66,5.59 8.12,5.92 7.63,6.29L5.24,5.33C5.02,5.25 4.77,5.33 4.65,5.55L2.74,8.87C2.62,9.08 2.66,9.34 2.86,9.48L4.89,11.06C4.84,11.36 4.8,11.69 4.8,12C4.8,12.31 4.82,12.64 4.87,12.94L2.85,14.52C2.67,14.66 2.62,14.93 2.73,15.13L4.65,18.45C4.77,18.67 5.02,18.74 5.24,18.67L7.63,17.71C8.13,18.09 8.66,18.41 9.25,18.65L9.61,21.19C9.65,21.43 9.84,21.6 10.08,21.6L13.92,21.6C14.16,21.6 14.36,21.43 14.39,21.19L14.75,18.65C15.34,18.41 15.88,18.09 16.37,17.71L18.76,18.67C18.98,18.75 19.23,18.67 19.35,18.45L21.27,15.13C21.39,14.91 21.34,14.66 21.15,14.52L19.14,12.94ZM12,15.6C10.02,15.6 8.4,13.98 8.4,12C8.4,10.02 10.02,8.4 12,8.4C13.98,8.4 15.6,10.02 15.6,12C15.6,13.98 13.98,15.6 12,15.6Z"/></svg>
+            </button>
+        </div>
+
+        <!-- Power Area -->
+        <div style="padding: 16px 0; text-align: center;">
+            <button class="btn btn-power">
+                <svg viewBox="0 0 24 24" class="white-icon"><path d="M12,3C12.55,3 13,3.45 13,4L13,12C13,12.55 12.55,13 12,13C11.45,13 11,12.55 11,12L11,4C11,3.45 11.45,3 12,3Z"/><path d="M5.64,6.64C6.03,6.25 6.66,6.25 7.05,6.64C7.44,7.03 7.44,7.66 7.05,8.05C5.76,9.34 5,11.08 5,13C5,16.87 8.13,20 12,20C15.87,20 19,16.87 19,13C19,11.08 18.24,9.34 16.95,8.05C16.56,7.66 16.56,7.03 16.95,6.64C17.34,6.25 17.97,6.25 18.36,6.64C20.01,8.29 21,10.54 21,13C21,17.97 16.97,22 12,22C7.03,22 3,17.97 3,13C3,10.54 3.99,8.29 5.64,6.64Z"/></svg>
+            </button>
+        </div>
+
+        <!-- Media Functions -->
+        <div class="section-card">
+            <div class="row">
+                <button class="btn btn-func">MEDIA</button>
+                <button class="btn btn-func">P.MODE</button>
+                <button class="btn btn-func">MTS</button>
+                <button class="btn btn-func">REC</button>
+            </div>
+        </div>
+
+         <!-- Number Pad -->
+         <div class="section-card">
+            <div class="row"><button class="btn btn-number">1</button><button class="btn btn-number">2</button><button class="btn btn-number">3</button></div>
+            <div class="row"><button class="btn btn-number">4</button><button class="btn btn-number">5</button><button class="btn btn-number">6</button></div>
+            <div class="row"><button class="btn btn-number">7</button><button class="btn btn-number">8</button><button class="btn btn-number">9</button></div>
+            <div class="row"><button class="btn btn-func">INFO</button><button class="btn btn-number">0</button><button class="btn btn-func">SUBT</button></div>
+        </div>
+
+        <!-- Direction Area -->
+        <div class="section-card">
+            <div class="row" style="align-items: center; justify-content: space-around;">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                    <button class="btn btn-vol"><svg viewBox="0 0 24 24" class="white-icon"><path d="M3,9V15H7L12,20V4L7,9H3ZM16,12C16,10.12 14.91,8.5 13.3,7.68V16.31C14.91,15.5 16,13.88 16,12ZM13.3,3.23V5.29C16.25,6.15 18.4,8.83 18.4,12C18.4,15.17 16.25,17.85 13.3,18.71V20.77C17.36,19.86 20.4,16.28 20.4,12C20.4,7.72 17.36,4.14 13.3,3.23Z"/></svg></button>
+                    <button class="btn btn-mute"><svg viewBox="0 0 24 24" class="white-icon"><path d="M16.5,12C16.5,10.12 15.41,8.5 13.8,7.68V10.18L16.46,12.84C16.48,12.57 16.5,12.29 16.5,12ZM19,12C19,12.94 18.78,13.82 18.4,14.61L19.93,16.14C20.62,14.89 21,13.49 21,12C21,7.72 17.96,4.14 13.8,3.23V5.29C16.84,6.15 19,8.83 19,12ZM4.27,3L3,4.27L7.73,9H3V15H7L12,20V13.27L16.25,17.52C15.58,18.04 14.83,18.45 14,18.7V20.76C15.38,20.45 16.63,19.81 17.68,18.95L19.73,21L21,19.73L12,10.73L4.27,3ZM12,4L9.91,6.09L12,8.18V4Z"/></svg></button>
+                    <button class="btn btn-vol"><svg viewBox="0 0 24 24" class="white-icon"><path d="M5,9V15H9L14,20V4L9,9H5ZM18.5,12C18.5,10.12 17.41,8.5 15.8,7.68V16.31C17.41,15.5 18.5,13.88 18.5,12Z"/></svg></button>
+                </div>
+
+                <div class="dpad-container">
+                    <button class="btn btn-dir dir-up"><svg viewBox="0 0 24 24"><path d="M12,8L6,14L7.41,15.41L12,10.83L16.59,15.41L18,14Z"/></svg></button>
+                    <button class="btn btn-dir dir-left"><svg viewBox="0 0 24 24"><path d="M8,12L14,6L15.41,7.41L10.83,12L15.41,16.59L14,18Z"/></svg></button>
+                    <button class="btn btn-ok">OK</button>
+                    <button class="btn btn-dir dir-right"><svg viewBox="0 0 24 24"><path d="M16,12L10,18L8.59,16.59L13.17,12L8.59,7.41L10,6Z"/></svg></button>
+                    <button class="btn btn-dir dir-down"><svg viewBox="0 0 24 24"><path d="M12,16L18,10L16.59,8.59L12,13.17L7.41,8.59L6,10Z"/></svg></button>
+                </div>
+
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                    <button class="btn btn-ch">CH+</button>
+                    <button class="btn btn-func" style="width: 48px; border-radius: 24px;"><svg viewBox="0 0 24 24" class="dark-icon"><path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"/></svg></button>
+                    <button class="btn btn-ch">CH-</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature Keys -->
+        <div class="section-card">
+            <div class="row">
+                <button class="btn btn-func">MENU</button>
+                <button class="btn btn-func">BACK</button>
+            </div>
+            <div class="row color-row">
+                <button class="btn btn-red"></button>
+                <button class="btn btn-green"></button>
+                <button class="btn btn-yellow"></button>
+                <button class="btn btn-blue"></button>
+            </div>
+        </div>
+
+        <!-- Factory Keys (Scrollable emulation) -->
+        <div class="section-card factory-card">
+            <div class="factory-title">FACTORY MODE</div>
+            <div class="row">
+                <button class="btn btn-factory">RESET</button>
+                <button class="btn btn-factory">MENU</button>
+                <button class="btn btn-factory">VER</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
