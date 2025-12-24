@@ -55,8 +55,4 @@
     <!-- Card/Surface -->
     <dimen name="card_elevation">4dp</dimen>
     <dimen name="card_corner_radius">16dp</dimen>
-    <!-- Neo-Brutalism Dimens -->
-    <dimen name="neo_stroke_width">3dp</dimen>
-    <dimen name="neo_corner_radius">0dp</dimen>
-    <dimen name="neo_power_size">80dp</dimen>
 </resources>

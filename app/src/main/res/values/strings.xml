@@ -75,6 +75,7 @@
     <string name="menu_config">配置管理</string>
     <string name="menu_about">关于</string>
     <string name="menu_sync">同步配置</string>
+    <string name="menu_scan">扫码导入</string>
 
     <!-- Config Editor -->
     <string name="config_name">配置名称</string>

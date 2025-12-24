@@ -65,7 +65,54 @@
 
 ---
 
-## 4. 常见问题排查 (FAQ)
+---
+
+## 4. 高级 API 使用 (POST 与 DELETE)
+
+由于浏览器默认只支持 GET 请求，测试 POST 和 DELETE 建议使用 **Postman**、**Insomnia** 或 **cURL**。
+
+### 4.1 上传新配置 (POST)
+**URL**: `http://172.19.234.87:3000/api/configs`
+**Method**: `POST`
+**Headers**: `Content-Type: application/json`
+**Body (JSON)**:
+```json
+{
+  "id": "new_tv_config",
+  "name": "卧室电视遥控器",
+  "protocol": 1,
+  "header": 36900,
+  "keys": [
+    {
+      "key_name": "KEY_POWER",
+      "key_code": 1,
+      "display_name": "开关",
+      "category": "function"
+    }
+  ]
+}
+```
+**cURL 命令示例**:
+```bash
+curl -X POST http://172.19.234.87:3000/api/configs \
+     -H "Content-Type: application/json" \
+     -d '{"id":"new_tv_config","name":"卧室电视遥控器","protocol":1,"header":36900,"keys":[]}'
+```
+
+---
+
+### 4.2 删除配置 (DELETE)
+**URL**: `http://172.19.234.87:3000/api/configs/:id`
+**Method**: `DELETE`
+
+**cURL 命令示例** (删除演示配置):
+```bash
+curl -X DELETE http://172.19.234.87:3000/api/configs/remote_demo_config
+```
+
+---
+
+## 5. 常见问题排查 (FAQ)
 
 | 问题描述 | 可能原因 | 解决方法 |
 | :--- | :--- | :--- |

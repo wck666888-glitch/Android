@@ -1,0 +1,31 @@
+{
+    "id": "remote_demo_config",
+    "name": "远程演示配置 (Remote Demo)",
+    "description": "Used to verify remote sync functionality",
+    "protocol": 1,
+    "header": 37000,
+    "is_default": false,
+    "version": "2.0",
+    "created_at": 1703240000000,
+    "updated_at": 1703240000000,
+    "keys": [
+        {
+            "key_name": "KEY_POWER",
+            "key_code": 1,
+            "display_name": "演示电源",
+            "category": "function"
+        },
+        {
+            "key_name": "KEY_MENU",
+            "key_code": 70,
+            "display_name": "演示菜单",
+            "category": "function"
+        },
+        {
+            "key_name": "KEY_HOME",
+            "key_code": 76,
+            "display_name": "演示主页",
+            "category": "function"
+        }
+    ]
+}

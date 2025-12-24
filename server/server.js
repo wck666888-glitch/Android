@@ -56,28 +56,6 @@ app.get('/api/configs', (req, res) => {
 });
 
 /**
- * 获取指定配置
- * GET /api/configs/:id
- */
-app.get('/api/configs/:id', (req, res) => {
-    try {
-        const configId = req.params.id;
-        const filePath = path.join(CONFIGS_DIR, `${configId}.json`);
-
-        if (!fs.existsSync(filePath)) {
-            return res.status(404).json({ error: 'Config not found' });
-        }
-
-        const content = fs.readFileSync(filePath, 'utf8');
-        const config = JSON.parse(content);
-        res.json(config);
-    } catch (error) {
-        console.error('Error reading config:', error);
-        res.status(500).json({ error: 'Failed to read config' });
-    }
-});
-
-/**
  * 获取默认配置
  * GET /api/configs/default
  */
@@ -103,6 +81,28 @@ app.get('/api/configs/default', (req, res) => {
     } catch (error) {
         console.error('Error reading default config:', error);
         res.status(500).json({ error: 'Failed to read default config' });
+    }
+});
+
+/**
+ * 获取指定配置
+ * GET /api/configs/:id
+ */
+app.get('/api/configs/:id', (req, res) => {
+    try {
+        const configId = req.params.id;
+        const filePath = path.join(CONFIGS_DIR, `${configId}.json`);
+
+        if (!fs.existsSync(filePath)) {
+            return res.status(404).json({ error: 'Config not found' });
+        }
+
+        const content = fs.readFileSync(filePath, 'utf8');
+        const config = JSON.parse(content);
+        res.json(config);
+    } catch (error) {
+        console.error('Error reading config:', error);
+        res.status(500).json({ error: 'Failed to read config' });
     }
 });
 

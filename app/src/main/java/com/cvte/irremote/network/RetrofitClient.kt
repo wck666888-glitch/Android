@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitClient {
     // Android Emulator localhost
-    private const val BASE_url = "http://10.0.2.2:3000/"
+    private const val BASE_URL = "http://172.19.234.87:3000/"
     
     private val client = OkHttpClient.Builder()
         .addInterceptor(HttpLoggingInterceptor().apply {
@@ -20,7 +20,7 @@ object RetrofitClient {
 
     val apiService: ConfigApiService by lazy {
         Retrofit.Builder()
-            .baseUrl(BASE_url)
+            .baseUrl(BASE_URL)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

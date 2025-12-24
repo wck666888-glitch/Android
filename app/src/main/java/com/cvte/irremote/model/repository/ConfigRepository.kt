@@ -237,6 +237,21 @@ class ConfigRepository private constructor(private val context: Context) {
             false
         }
     }
+
+    /**
+     * 从远程同步指定配置
+     */
+    suspend fun syncSpecificConfig(configId: String): IRConfig? {
+        return try {
+            val config = com.cvte.irremote.network.RetrofitClient.apiService.getConfig(configId)
+            saveConfig(config)
+            IRLogger.i(TAG, "Synced specific config: $configId")
+            config
+        } catch (e: Exception) {
+            IRLogger.e(TAG, "Failed to sync specific config: $configId", e)
+            null
+        }
+    }
     
     /**
      * 加载默认配置 (CVTE工厂遥控器)

@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/app_name"
-                android:textColor="@color/neo_text"
+                android:textColor="@color/text_primary"
                 android:textSize="@dimen/text_size_large"
                 android:textStyle="bold" />
 
@@ -39,7 +39,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/menu_settings"
                 android:src="@android:drawable/ic_menu_manage"
-                app:tint="@color/neo_text" />
+                app:tint="@color/text_primary" />
         </LinearLayout>
 
         <!-- 电源键区域 -->
@@ -53,24 +53,22 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnPower"
                 style="@style/RemoteButton.Power"
-                android:layout_width="@dimen/neo_power_size"
-                android:layout_height="@dimen/neo_power_size"
+                android:layout_width="@dimen/power_button_size"
+                android:layout_height="@dimen/power_button_size"
                 android:text="@string/btn_power"
                 app:icon="@android:drawable/ic_lock_power_off"
                 app:iconGravity="top"
-                app:iconTint="@color/neo_text" />
+                app:iconTint="@color/on_primary" />
         </LinearLayout>
 
         <!-- 媒体功能键区域 -->
-        <com.google.android.material.card.MaterialCardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin_small"
-            app:cardBackgroundColor="@color/neo_surface"
-            app:cardCornerRadius="@dimen/neo_corner_radius"
-            app:cardElevation="0dp"
-            app:strokeColor="@color/neo_border"
-            app:strokeWidth="0dp">
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -115,16 +113,16 @@
                     android:layout_weight="1"
                     android:text="@string/btn_record" />
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+        </androidx.cardview.widget.CardView>
 
         <!-- 数字键盘区域 -->
-        <com.google.android.material.card.MaterialCardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin_small"
-            app:cardBackgroundColor="@color/neo_surface"
-            app:cardCornerRadius="@dimen/neo_corner_radius"
-            app:cardElevation="0dp">
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation">
 
             <GridLayout
                 android:id="@+id/gridNumbers"
@@ -237,16 +235,16 @@
                     android:text="@string/btn_subtitle" />
 
             </GridLayout>
-        </com.google.android.material.card.MaterialCardView>
+        </androidx.cardview.widget.CardView>
 
         <!-- 方向键区域 -->
-        <com.google.android.material.card.MaterialCardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin_small"
-            app:cardBackgroundColor="@color/neo_surface"
-            app:cardCornerRadius="@dimen/neo_corner_radius"
-            app:cardElevation="0dp">
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -368,16 +366,16 @@
                         android:text="@string/btn_ch_down" />
                 </LinearLayout>
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+        </androidx.cardview.widget.CardView>
 
         <!-- 功能键区域 -->
-        <com.google.android.material.card.MaterialCardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin_small"
-            app:cardBackgroundColor="@color/neo_surface"
-            app:cardCornerRadius="@dimen/neo_corner_radius"
-            app:cardElevation="0dp">
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -456,16 +454,16 @@
                         android:text="@string/btn_blue" />
                 </LinearLayout>
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+        </androidx.cardview.widget.CardView>
 
         <!-- 辅助功能键区域 -->
-        <com.google.android.material.card.MaterialCardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin_small"
-            app:cardBackgroundColor="@color/neo_surface"
-            app:cardCornerRadius="@dimen/neo_corner_radius"
-            app:cardElevation="0dp">
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -501,16 +499,16 @@
                     android:layout_weight="1"
                     android:text="@string/btn_kp1" />
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+        </androidx.cardview.widget.CardView>
 
         <!-- 工厂测试键区域 -->
-        <com.google.android.material.card.MaterialCardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin_small"
-            app:cardBackgroundColor="@color/neo_surface"
-            app:cardCornerRadius="@dimen/neo_corner_radius"
-            app:cardElevation="0dp">
+            app:cardBackgroundColor="#2D2D2D"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -522,7 +520,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/factory_section_title"
-                    android:textColor="@color/neo_accent_yellow"
+                    android:textColor="@color/button_yellow"
                     android:textSize="@dimen/text_size_small"
                     android:textStyle="bold"
                     android:paddingBottom="@dimen/margin_small" />
@@ -670,7 +668,7 @@
                         android:text="@string/btn_fac_touchpad" />
                 </LinearLayout>
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+        </androidx.cardview.widget.CardView>
 
         <!-- 状态提示 -->
         <TextView
@@ -680,9 +678,8 @@
             android:layout_marginTop="@dimen/margin_small"
             android:gravity="center"
             android:text="@string/msg_loading"
-            android:textColor="@color/neo_text"
-            android:textSize="@dimen/text_size_small"
-            android:textStyle="bold" />
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_size_small" />
 
     </LinearLayout>
 </ScrollView>

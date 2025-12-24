@@ -73,6 +73,41 @@ class RemoteControlViewModel(application: Application) : AndroidViewModel(applic
         }
     }
     
+    /**
+     * 通过扫码/URL拉取配置
+     */
+    fun fetchAndApplyConfig(qrContent: String) {
+        if (_isSyncing.value == true) return
+        
+        // 简单的解析逻辑：如果是URL，取最后一部分作为ID；否则直接作为ID
+        val configId = if (qrContent.startsWith("http")) {
+            qrContent.trimEnd('/').substringAfterLast('/')
+        } else {
+            qrContent
+        }
+        
+        if (configId.isEmpty()) {
+            _statusMessage.value = "无效的二维码内容"
+            return
+        }
+
+        _isSyncing.value = true
+        _statusMessage.value = "正在获取配置: $configId..."
+        
+        viewModelScope.launch {
+            val config = configRepository.syncSpecificConfig(configId)
+            
+            _isSyncing.value = false
+            if (config != null) {
+                // 成功后自动切换到该配置
+                switchConfig(config)
+                _statusMessage.value = "已加载新配置: ${config.name}"
+            } else {
+                _statusMessage.value = "获取配置失败，请检查ID或网络"
+            }
+        }
+    }
+    
     init {
         // 检查IR支持
         _isIRSupported.value = irManager.isIRSupported()

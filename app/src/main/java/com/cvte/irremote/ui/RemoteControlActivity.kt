@@ -237,6 +237,9 @@ class RemoteControlActivity : AppCompatActivity() {
     /**
      * 显示设置菜单
      */
+    /**
+     * 显示设置菜单
+     */
     private fun showSettingsMenu(view: View) {
         val popup = android.widget.PopupMenu(this, view)
         popup.menuInflater.inflate(R.menu.menu_remote, popup.menu)
@@ -250,6 +253,10 @@ class RemoteControlActivity : AppCompatActivity() {
                     viewModel.syncConfigs()
                     true
                 }
+                R.id.action_scan_qr -> {
+                    startQRScanner()
+                    true
+                }
                 R.id.action_about -> {
                     showAboutDialog()
                     true
@@ -258,6 +265,33 @@ class RemoteControlActivity : AppCompatActivity() {
             }
         }
         popup.show()
+    }
+
+    /**
+     * 启动二维码扫描
+     */
+    private fun startQRScanner() {
+        val integrator = com.google.zxing.integration.android.IntentIntegrator(this)
+        integrator.setDesiredBarcodeFormats(com.google.zxing.integration.android.IntentIntegrator.QR_CODE)
+        integrator.setPrompt("请扫描红外配置二维码")
+        integrator.setCameraId(0)
+        integrator.setBeepEnabled(true)
+        integrator.setBarcodeImageEnabled(false)
+        integrator.initiateScan()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        val result = com.google.zxing.integration.android.IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+        if (result != null) {
+            if (result.contents != null) {
+                // 处理扫描结果
+                viewModel.fetchAndApplyConfig(result.contents)
+            } else {
+                Toast.makeText(this, "取消扫描", Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data)
+        }
     }
     
     /**

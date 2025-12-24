@@ -15,6 +15,12 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/action_scan_qr"
+        android:icon="@android:drawable/ic_menu_camera"
+        android:title="@string/menu_scan"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/action_about"
         android:icon="@android:drawable/ic_menu_info_details"
         android:title="@string/menu_about"
