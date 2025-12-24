@@ -117,7 +117,7 @@
     <!-- About Dialog -->
     <string name="about_title">关于</string>
     <string name="about_version">版本: %s</string>
-    <string name="about_description">CVTE TV红外遥控模拟器\n开发于2024年</string>
+    <string name="about_description">CVTE TV红外遥控模拟器\n开发于2025年12月</string>
 
     <!-- Content Descriptions (Accessibility) -->
     <string name="cd_power_button">电源按钮</string>
