@@ -272,11 +272,13 @@ class RemoteControlActivity : AppCompatActivity() {
      */
     private fun startQRScanner() {
         val integrator = com.google.zxing.integration.android.IntentIntegrator(this)
+        integrator.setCaptureActivity(CustomScannerActivity::class.java)
         integrator.setDesiredBarcodeFormats(com.google.zxing.integration.android.IntentIntegrator.QR_CODE)
         integrator.setPrompt("请扫描红外配置二维码")
         integrator.setCameraId(0)
         integrator.setBeepEnabled(true)
         integrator.setBarcodeImageEnabled(false)
+        integrator.setOrientationLocked(true)
         integrator.initiateScan()
     }
 
