@@ -82,13 +82,14 @@ class CustomScannerActivity : AppCompatActivity() {
 
     private fun startScanAnimation() {
         ivScanLine.visibility = android.view.View.VISIBLE
+        // 调整动画范围：从顶部 (0.0) 到底部 (1.0)
         val animation = android.view.animation.TranslateAnimation(
             android.view.animation.Animation.RELATIVE_TO_PARENT, 0.0f,
             android.view.animation.Animation.RELATIVE_TO_PARENT, 0.0f,
-            android.view.animation.Animation.RELATIVE_TO_PARENT, -0.4f, // 起始位置 (稍微偏上)
-            android.view.animation.Animation.RELATIVE_TO_PARENT, 0.4f  // 结束位置 (稍微偏下)
+            android.view.animation.Animation.RELATIVE_TO_PARENT, 0.0f,
+            android.view.animation.Animation.RELATIVE_TO_PARENT, 1.0f
         )
-        animation.duration = 2500
+        animation.duration = 3000 // 稍微放慢速度适配全屏
         animation.repeatCount = android.view.animation.Animation.INFINITE
         animation.repeatMode = android.view.animation.Animation.RESTART
         animation.interpolator = android.view.animation.LinearInterpolator()

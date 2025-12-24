@@ -15,6 +15,6 @@
         app:zxing_possible_result_points="@color/primary"
         app:zxing_result_view="@android:color/transparent"
         app:zxing_viewfinder_laser="@android:color/transparent"
-        app:zxing_viewfinder_mask="#60000000" />
+        app:zxing_viewfinder_mask="@android:color/transparent" />
 
 </merge>
