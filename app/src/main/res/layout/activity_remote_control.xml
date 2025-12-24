@@ -236,7 +236,7 @@
             </GridLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- 方向键区域 -->
+        <!-- 方向键区域 (对称三栏布局) -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -252,18 +252,19 @@
                 android:orientation="horizontal"
                 android:padding="@dimen/margin_medium">
 
-                <!-- 音量控制 -->
+                <!-- 左栏: 音量控制 -->
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnVolUp"
                         style="@style/RemoteButton.Volume"
-                        android:layout_width="@dimen/vol_ch_button_width"
-                        android:layout_height="@dimen/vol_ch_button_height"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
                         app:icon="@drawable/ic_volume_up"
                         app:iconGravity="textStart"
                         app:iconTint="@color/text_on_colored" />
@@ -273,7 +274,7 @@
                         style="@style/RemoteButton.Mute"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
-                        android:layout_marginVertical="4dp"
+                        android:layout_marginVertical="8dp"
                         app:icon="@drawable/ic_mute"
                         app:iconGravity="textStart"
                         app:iconTint="@color/text_on_colored" />
@@ -281,19 +282,19 @@
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnVolDown"
                         style="@style/RemoteButton.Volume"
-                        android:layout_width="@dimen/vol_ch_button_width"
-                        android:layout_height="@dimen/vol_ch_button_height"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
                         app:icon="@drawable/ic_volume_down"
                         app:iconGravity="textStart"
                         app:iconTint="@color/text_on_colored" />
                 </LinearLayout>
 
-                <!-- 方向键 D-Pad -->
+                <!-- 中栏: 方向键 D-Pad -->
                 <FrameLayout
                     android:id="@+id/dpadContainer"
-                    android:layout_width="@dimen/dpad_container_size"
+                    android:layout_width="0dp"
                     android:layout_height="@dimen/dpad_container_size"
-                    android:layout_marginHorizontal="@dimen/margin_small">
+                    android:layout_weight="2">
 
                     <!-- OK 确认键 (中心) -->
                     <com.google.android.material.button.MaterialButton
@@ -302,6 +303,9 @@
                         android:layout_width="@dimen/ok_button_size"
                         android:layout_height="@dimen/ok_button_size"
                         android:layout_gravity="center"
+                        android:gravity="center"
+                        android:padding="0dp"
+                        android:singleLine="true"
                         android:text="@string/btn_ok" />
 
                     <!-- 上 -->
@@ -349,18 +353,22 @@
                         app:iconTint="@color/text_primary" />
                 </FrameLayout>
 
-                <!-- 频道控制 -->
+                <!-- 右栏: 频道控制 -->
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnChUp"
                         style="@style/RemoteButton.Channel"
-                        android:layout_width="@dimen/vol_ch_button_width"
-                        android:layout_height="@dimen/vol_ch_button_height"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:gravity="center"
+                        android:padding="0dp"
+                        android:singleLine="true"
                         android:text="@string/btn_ch_up" />
 
                     <com.google.android.material.button.MaterialButton
@@ -368,7 +376,7 @@
                         style="@style/RemoteButton.Function"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
-                        android:layout_marginVertical="4dp"
+                        android:layout_marginVertical="8dp"
                         app:icon="@drawable/ic_home"
                         app:iconGravity="textStart"
                         app:iconTint="@color/text_primary" />
@@ -376,8 +384,11 @@
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnChDown"
                         style="@style/RemoteButton.Channel"
-                        android:layout_width="@dimen/vol_ch_button_width"
-                        android:layout_height="@dimen/vol_ch_button_height"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:gravity="center"
+                        android:padding="0dp"
+                        android:singleLine="true"
                         android:text="@string/btn_ch_down" />
                 </LinearLayout>
             </LinearLayout>
