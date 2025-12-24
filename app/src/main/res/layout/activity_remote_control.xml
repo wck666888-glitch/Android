@@ -272,8 +272,15 @@
                         style="@style/RemoteButton.Volume"
                         android:layout_width="56dp"
                         android:layout_height="56dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:insetLeft="0dp"
+                        android:insetRight="0dp"
+                        android:padding="0dp"
                         app:icon="@drawable/ic_volume_up"
                         app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="24dp"
                         app:iconTint="@color/text_on_colored" />
 
                     <com.google.android.material.button.MaterialButton
@@ -282,8 +289,15 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_marginVertical="8dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:insetLeft="0dp"
+                        android:insetRight="0dp"
+                        android:padding="0dp"
                         app:icon="@drawable/ic_mute"
                         app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="24dp"
                         app:iconTint="@color/text_on_colored" />
 
                     <com.google.android.material.button.MaterialButton
@@ -291,8 +305,15 @@
                         style="@style/RemoteButton.Volume"
                         android:layout_width="56dp"
                         android:layout_height="56dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:insetLeft="0dp"
+                        android:insetRight="0dp"
+                        android:padding="0dp"
                         app:icon="@drawable/ic_volume_down"
                         app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="24dp"
                         app:iconTint="@color/text_on_colored" />
                 </LinearLayout>
 
@@ -311,6 +332,10 @@
                         android:layout_height="@dimen/ok_button_size"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:insetLeft="0dp"
+                        android:insetRight="0dp"
                         android:padding="0dp"
                         android:singleLine="true"
                         android:text="@string/btn_ok" />
@@ -322,9 +347,16 @@
                         android:layout_width="@dimen/direction_button_size"
                         android:layout_height="@dimen/direction_button_size"
                         android:layout_gravity="top|center_horizontal"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:insetLeft="0dp"
+                        android:insetRight="0dp"
+                        android:padding="0dp"
                         app:icon="@drawable/ic_arrow_up"
                         app:iconGravity="textStart"
-                        app:iconTint="@color/text_primary" />
+                        app:iconPadding="0dp"
+                        app:iconSize="20dp"
+                        app:iconTint="#90A4AE" />
 
                     <!-- 下 -->
                     <com.google.android.material.button.MaterialButton
@@ -333,9 +365,16 @@
                         android:layout_width="@dimen/direction_button_size"
                         android:layout_height="@dimen/direction_button_size"
                         android:layout_gravity="bottom|center_horizontal"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:insetLeft="0dp"
+                        android:insetRight="0dp"
+                        android:padding="0dp"
                         app:icon="@drawable/ic_arrow_down"
                         app:iconGravity="textStart"
-                        app:iconTint="@color/text_primary" />
+                        app:iconPadding="0dp"
+                        app:iconSize="20dp"
+                        app:iconTint="#90A4AE" />
 
                     <!-- 左 -->
                     <com.google.android.material.button.MaterialButton
@@ -344,9 +383,16 @@
                         android:layout_width="@dimen/direction_button_size"
                         android:layout_height="@dimen/direction_button_size"
                         android:layout_gravity="center_vertical|start"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:insetLeft="0dp"
+                        android:insetRight="0dp"
+                        android:padding="0dp"
                         app:icon="@drawable/ic_arrow_left"
                         app:iconGravity="textStart"
-                        app:iconTint="@color/text_primary" />
+                        app:iconPadding="0dp"
+                        app:iconSize="20dp"
+                        app:iconTint="#90A4AE" />
 
                     <!-- 右 -->
                     <com.google.android.material.button.MaterialButton
@@ -355,9 +401,16 @@
                         android:layout_width="@dimen/direction_button_size"
                         android:layout_height="@dimen/direction_button_size"
                         android:layout_gravity="center_vertical|end"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:insetLeft="0dp"
+                        android:insetRight="0dp"
+                        android:padding="0dp"
                         app:icon="@drawable/ic_arrow_right"
                         app:iconGravity="textStart"
-                        app:iconTint="@color/text_primary" />
+                        app:iconPadding="0dp"
+                        app:iconSize="20dp"
+                        app:iconTint="#90A4AE" />
                 </FrameLayout>
 
                 <!-- 右栏: 频道控制 -->
@@ -374,9 +427,14 @@
                         android:layout_width="56dp"
                         android:layout_height="56dp"
                         android:gravity="center"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:insetLeft="0dp"
+                        android:insetRight="0dp"
                         android:padding="0dp"
                         android:singleLine="true"
-                        android:text="@string/btn_ch_up" />
+                        android:text="@string/btn_ch_up"
+                        android:textSize="14sp" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnHome"
@@ -384,8 +442,15 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_marginVertical="8dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:insetLeft="0dp"
+                        android:insetRight="0dp"
+                        android:padding="0dp"
                         app:icon="@drawable/ic_home"
                         app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="24dp"
                         app:iconTint="@color/text_primary" />
 
                     <com.google.android.material.button.MaterialButton
@@ -394,9 +459,14 @@
                         android:layout_width="56dp"
                         android:layout_height="56dp"
                         android:gravity="center"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:insetLeft="0dp"
+                        android:insetRight="0dp"
                         android:padding="0dp"
                         android:singleLine="true"
-                        android:text="@string/btn_ch_down" />
+                        android:text="@string/btn_ch_down"
+                        android:textSize="14sp" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
