@@ -65,4 +65,15 @@
 
     <!-- Divider -->
     <color name="divider">#3D3D3D</color>
+    <!-- Neo-Brutalism Palette -->
+    <color name="neo_background">#000000</color>
+    <color name="neo_surface">#1A1A1A</color>
+    <color name="neo_border">#000000</color>
+    <color name="neo_text">#FFFFFF</color>
+    
+    <color name="neo_primary">#0000FF</color>       <!-- Electric Blue -->
+    <color name="neo_accent_red">#FF0000</color>    <!-- Bright Red -->
+    <color name="neo_accent_green">#00FF00</color>  <!-- Neon Green -->
+    <color name="neo_accent_yellow">#FFFF00</color> <!-- Bright Yellow -->
+    <color name="neo_accent_orange">#FF5722</color> <!-- High Saturation Orange -->
 </resources>

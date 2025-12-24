@@ -21,115 +21,110 @@
         <item name="android:navigationBarColor">@color/background</item>
     </style>
 
-    <!-- Remote Button Base Style -->
+    <!-- Remote Button Base Style (Neo-Brutalism) -->
     <style name="RemoteButton" parent="Widget.Material3.Button">
         <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/text_primary</item>
-        <item name="cornerRadius">12dp</item>
+        <item name="android:textColor">@color/neo_text</item>
+        <item name="cornerRadius">@dimen/neo_corner_radius</item>
+        <item name="strokeWidth">@dimen/neo_stroke_width</item>
+        <item name="strokeColor">@color/neo_border</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-black</item>
         <item name="android:minWidth">60dp</item>
         <item name="android:minHeight">60dp</item>
-        <item name="android:elevation">4dp</item>
+        <item name="android:elevation">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
     </style>
 
     <!-- Power Button Style -->
     <style name="RemoteButton.Power">
-        <item name="backgroundTint">@color/button_power</item>
+        <item name="backgroundTint">@color/neo_accent_red</item>
         <item name="android:textSize">14sp</item>
-        <item name="cornerRadius">30dp</item>
-        <item name="android:minWidth">64dp</item>
-        <item name="android:minHeight">64dp</item>
+        <item name="cornerRadius">40dp</item> <!-- Exception: Circle -->
+        <item name="android:minWidth">@dimen/neo_power_size</item>
+        <item name="android:minHeight">@dimen/neo_power_size</item>
     </style>
 
     <!-- Number Button Style -->
     <style name="RemoteButton.Number">
-        <item name="backgroundTint">@color/button_number</item>
+        <item name="backgroundTint">@color/neo_surface</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="cornerRadius">16dp</item>
         <item name="android:minWidth">72dp</item>
         <item name="android:minHeight">56dp</item>
     </style>
 
     <!-- Direction Button Style -->
     <style name="RemoteButton.Direction">
-        <item name="backgroundTint">@color/button_direction</item>
+        <item name="backgroundTint">@color/neo_surface</item>
         <item name="android:textSize">24sp</item>
-        <item name="cornerRadius">12dp</item>
         <item name="android:minWidth">64dp</item>
         <item name="android:minHeight">64dp</item>
     </style>
 
     <!-- OK Button Style (Center of D-pad) -->
     <style name="RemoteButton.OK">
-        <item name="backgroundTint">@color/button_ok</item>
+        <item name="backgroundTint">@color/neo_primary</item>
+        <item name="cornerRadius">40dp</item> <!-- Exception: Circle -->
         <item name="android:textSize">18sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="cornerRadius">35dp</item>
         <item name="android:minWidth">70dp</item>
         <item name="android:minHeight">70dp</item>
     </style>
 
     <!-- Function Button Style -->
     <style name="RemoteButton.Function">
-        <item name="backgroundTint">@color/button_function</item>
+        <item name="backgroundTint">@color/neo_surface</item>
         <item name="android:textSize">12sp</item>
-        <item name="cornerRadius">8dp</item>
         <item name="android:minWidth">72dp</item>
         <item name="android:minHeight">48dp</item>
     </style>
 
-    <!-- Volume Button Style -->
+    <!-- Volume/Channel/Mute Button Style -->
     <style name="RemoteButton.Volume">
-        <item name="backgroundTint">@color/button_volume</item>
+        <item name="backgroundTint">#800080</item> <!-- Purple -->
         <item name="android:textSize">14sp</item>
-        <item name="cornerRadius">8dp</item>
     </style>
-
-    <!-- Channel Button Style -->
+    
     <style name="RemoteButton.Channel">
-        <item name="backgroundTint">@color/button_channel</item>
+        <item name="backgroundTint">#800080</item> <!-- Purple -->
         <item name="android:textSize">14sp</item>
-        <item name="cornerRadius">8dp</item>
     </style>
 
-    <!-- Mute Button Style -->
     <style name="RemoteButton.Mute">
-        <item name="backgroundTint">@color/button_mute</item>
+        <item name="backgroundTint">@color/neo_accent_orange</item> <!-- Circle Mute -->
+         <item name="cornerRadius">24dp</item>
         <item name="android:textSize">12sp</item>
-        <item name="cornerRadius">24dp</item>
     </style>
 
     <!-- Color Buttons -->
     <style name="RemoteButton.Color">
         <item name="android:textSize">12sp</item>
-        <item name="cornerRadius">4dp</item>
         <item name="android:minWidth">60dp</item>
-        <item name="android:minHeight">32dp</item>
+        <item name="android:minHeight">40dp</item>
     </style>
 
     <style name="RemoteButton.Color.Red">
-        <item name="backgroundTint">@color/button_red</item>
+        <item name="backgroundTint">@color/neo_accent_red</item>
     </style>
 
     <style name="RemoteButton.Color.Green">
-        <item name="backgroundTint">@color/button_green</item>
+        <item name="backgroundTint">@color/neo_accent_green</item>
+        <item name="android:textColor">#000000</item>
     </style>
 
     <style name="RemoteButton.Color.Yellow">
-        <item name="backgroundTint">@color/button_yellow</item>
+        <item name="backgroundTint">@color/neo_accent_yellow</item>
         <item name="android:textColor">#000000</item>
     </style>
 
     <style name="RemoteButton.Color.Blue">
-        <item name="backgroundTint">@color/button_blue</item>
+        <item name="backgroundTint">@color/neo_primary</item>
     </style>
 
     <!-- Factory Button Style -->
     <style name="RemoteButton.Factory">
-        <item name="backgroundTint">#FF6B00</item>
+        <item name="backgroundTint">@color/neo_accent_orange</item>
         <item name="android:textSize">10sp</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="cornerRadius">6dp</item>
+        <item name="android:textColor">#000000</item>
         <item name="android:minWidth">60dp</item>
         <item name="android:minHeight">40dp</item>
     </style>
