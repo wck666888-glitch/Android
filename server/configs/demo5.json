@@ -1,0 +1,19 @@
+{
+    "id": "demo5",
+    "name": "Demo 5 测试配置",
+    "description": "用于测试滚动功能的示例配置5",
+    "protocol": 1,
+    "header": 34960,
+    "is_default": false,
+    "version": "1.0",
+    "created_at": 1735100000000,
+    "updated_at": 1735100000000,
+    "keys": [
+        {
+            "key_name": "KEY_POWER",
+            "key_code": 1,
+            "display_name": "电源",
+            "category": "function"
+        }
+    ]
+}

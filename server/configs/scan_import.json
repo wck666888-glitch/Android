@@ -1,0 +1,27 @@
+{
+  "id": "scan_import",
+  "name": "扫码导入",
+  "protocol": 1,
+  "header": 34960,
+  "keys": [
+    {
+      "key_name": "KEY_POWER",
+      "key_code": 1,
+      "display_name": "电源",
+      "category": "function"
+    },
+    {
+      "key_name": "KEY_VOLUMEUP",
+      "key_code": 68,
+      "display_name": "音量+",
+      "category": "volume"
+    },
+    {
+      "key_name": "KEY_VOLUMEDOWN",
+      "key_code": 69,
+      "display_name": "音量-",
+      "category": "volume"
+    }
+  ],
+  "updated_at": 1766662053612
+}

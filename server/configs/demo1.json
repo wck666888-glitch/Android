@@ -1,0 +1,31 @@
+{
+    "id": "demo1",
+    "name": "Demo 1 测试配置",
+    "description": "用于测试删除功能的示例配置1",
+    "protocol": 1,
+    "header": 34960,
+    "is_default": false,
+    "version": "1.0",
+    "created_at": 1735100000000,
+    "updated_at": 1735100000000,
+    "keys": [
+        {
+            "key_name": "KEY_POWER",
+            "key_code": 1,
+            "display_name": "电源",
+            "category": "function"
+        },
+        {
+            "key_name": "KEY_UP",
+            "key_code": 86,
+            "display_name": "▲",
+            "category": "direction"
+        },
+        {
+            "key_name": "KEY_DOWN",
+            "key_code": 80,
+            "display_name": "▼",
+            "category": "direction"
+        }
+    ]
+}

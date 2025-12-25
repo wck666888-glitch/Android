@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实习收获与感想</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            padding: 40px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #764ba2;
+            font-size: 42px;
+            margin-bottom: 40px;
+            text-shadow: none;
+        }
+
+        .section {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #764ba2;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title .icon {
+            font-size: 28px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-card h3 {
+            color: #667eea;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .skill-card ul {
+            list-style: none;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .skill-card li {
+            padding: 4px 0;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .skill-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fffde7 0%, #fff9c4 100%);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid #ffc107;
+            border: 1px solid #fff9c4;
+        }
+
+        .highlight-box p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #5d4037;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 20px;
+            text-align: center;
+            color: #555;
+            margin-top: 30px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 15px;
+            border: 1px solid #eee;
+        }
+
+        .quote::before {
+            content: "“";
+            font-size: 60px;
+            line-height: 0;
+            vertical-align: -20px;
+            color: rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎓 实习收获与感想</h1>
+
+        <!-- 技术能力 -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">🚀</span>
+                <span>技术能力的飞跃</span>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>📐 架构设计</h3>
+                    <ul>
+                        <li>MVVM 架构实践</li>
+                        <li>LiveData 数据驱动 UI</li>
+                        <li>Repository 模式</li>
+                        <li>单一可信数据源</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>📡 核心功能攻坚</h3>
+                    <ul>
+                        <li>红外协议底层对接</li>
+                        <li>NEC 协议编码规则</li>
+                        <li>Kotlin Coroutines 并发</li>
+                        <li>Retrofit 网络请求</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>🎨 UI/UX 细节</h3>
+                    <ul>
+                        <li>自定义 Drawable 绘制</li>
+                        <li>物理遥控器质感还原</li>
+                        <li>触觉反馈与状态提示</li>
+                        <li>BottomSheet 交互设计</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 工程素养 -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">⚙️</span>
+                <span>工程素养的提升</span>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>📝 规范化开发</h3>
+                    <ul>
+                        <li>Git Conventional Commits</li>
+                        <li>清晰的提交历史</li>
+                        <li>代码Review意识</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>🔍 调试与排错</h3>
+                    <ul>
+                        <li>Logcat 分层分析</li>
+                        <li>断点调试定位问题</li>
+                        <li>Hex 数据比对验证</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>📚 文档与表达</h3>
+                    <ul>
+                        <li>README.md 编写</li>
+                        <li>Mermaid 架构图</li>
+                        <li>技术方案可视化</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 心得感悟 -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">💡</span>
+                <span>心得与感悟</span>
+            </div>
+            <div class="highlight-box">
+                <p>
+                    <strong>"代码只是实现思想的工具"</strong> —— 从关注功能"能用"，到思考架构"好用"、"易扩展"。
+                </p>
+                <p style="margin-top: 15px;">
+                    <strong>"创新源于需求"</strong> —— "长按显示说明"和"扫码导入"功能，是站在用户角度思考后的解决方案，极大提升了产品实用性。
+                </p>
+            </div>
+        </div>
+
+        <div class="quote">
+            这次实习不仅磨炼了 Android 硬技能，更培养了追求卓越、用户至上的工程师思维。
+        </div>
+    </div>
+</body>
+
+</html>

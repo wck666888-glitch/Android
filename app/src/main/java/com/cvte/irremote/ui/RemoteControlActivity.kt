@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
@@ -41,6 +43,18 @@ class RemoteControlActivity : AppCompatActivity() {
     private val viewModel: RemoteControlViewModel by viewModels()
     private lateinit var preferenceManager: PreferenceManager
     private var vibrator: Vibrator? = null
+    
+    // 顶部通知自动隐藏 Handler
+    private val notificationHandler = Handler(Looper.getMainLooper())
+    private val hideNotificationRunnable = Runnable {
+        binding.tvTopNotification.animate()
+            .alpha(0f)
+            .setDuration(300)
+            .withEndAction {
+                binding.tvTopNotification.visibility = View.GONE
+            }
+            .start()
+    }
     
     // 特殊按键描述信息映射表
     private val specialKeys: Map<Int, KeyDescription> by lazy {
@@ -254,6 +268,10 @@ class RemoteControlActivity : AppCompatActivity() {
                     "${result.keyName}: ${result.message}"
                 }
                 
+                // 显示顶部通知
+                showTopNotification(message)
+                
+                // 同步更新底部状态
                 if (result.success) {
                     binding.tvStatus.text = message
                 } else {
@@ -272,7 +290,25 @@ class RemoteControlActivity : AppCompatActivity() {
         // 观察状态消息
         viewModel.statusMessage.observe(this) { message ->
             binding.tvStatus.text = message
+            // 同步显示顶部通知（用于同步状态等）
+            showTopNotification(message)
         }
+    }
+    
+    /**
+     * 显示顶部通知栏（自动消失）
+     */
+    private fun showTopNotification(message: String) {
+        // 移除之前的隐藏任务
+        notificationHandler.removeCallbacks(hideNotificationRunnable)
+        
+        // 设置文本并显示
+        binding.tvTopNotification.text = message
+        binding.tvTopNotification.alpha = 1f
+        binding.tvTopNotification.visibility = View.VISIBLE
+        
+        // 2秒后自动隐藏
+        notificationHandler.postDelayed(hideNotificationRunnable, 2000)
     }
     
     /**
@@ -295,14 +331,77 @@ class RemoteControlActivity : AppCompatActivity() {
         val configs = viewModel.getAllConfigs()
         val configNames = configs.map { it.name }.toTypedArray()
         
-        AlertDialog.Builder(this)
+        val dialog = AlertDialog.Builder(this)
             .setTitle(R.string.config_list_title)
-            .setItems(configNames) { _, which ->
-                viewModel.switchConfig(configs[which])
-            }
             .setPositiveButton(R.string.config_editor_title) { _, _ ->
-                // 打开配置编辑器
-                startActivity(Intent(this, ConfigEditorActivity::class.java))
+                // 打开配置编辑器，传入当前配置ID
+                val intent = Intent(this, ConfigEditorActivity::class.java)
+                viewModel.currentConfig.value?.let { config ->
+                    intent.putExtra(ConfigEditorActivity.EXTRA_CONFIG_ID, config.id)
+                }
+                startActivity(intent)
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .create()
+        
+        // 使用自定义 ListView 支持长按和滚动
+        val listView = android.widget.ListView(this)
+        listView.adapter = android.widget.ArrayAdapter(this, android.R.layout.simple_list_item_1, configNames)
+        
+        // 单击切换配置
+        listView.setOnItemClickListener { _, _, position, _ ->
+            viewModel.switchConfig(configs[position])
+            dialog.dismiss()
+        }
+        
+        // 长按显示删除选项
+        listView.setOnItemLongClickListener { _, _, position, _ ->
+            val config = configs[position]
+            if (config.isDefault) {
+                Toast.makeText(this, "无法删除默认配置", Toast.LENGTH_SHORT).show()
+            } else {
+                showDeleteConfigDialog(config, dialog)
+            }
+            true
+        }
+        
+        // 将 ListView 放入容器并设置固定最大高度
+        val container = android.widget.FrameLayout(this)
+        container.addView(listView)
+        
+        // 设置最大高度（约6个项目）
+        val itemHeight = (48 * resources.displayMetrics.density).toInt()
+        val maxHeight = 6 * itemHeight
+        val actualHeight = if (configs.size > 6) maxHeight else configs.size * itemHeight
+        
+        val padding = (16 * resources.displayMetrics.density).toInt()
+        dialog.setView(container, padding, padding, padding, padding)
+        dialog.show()
+        
+        // 在 dialog 显示后设置 ListView 高度
+        listView.layoutParams = android.widget.FrameLayout.LayoutParams(
+            android.widget.FrameLayout.LayoutParams.MATCH_PARENT,
+            actualHeight
+        )
+    }
+    
+    /**
+     * 显示删除配置确认对话框
+     */
+    private fun showDeleteConfigDialog(config: IRConfig, parentDialog: AlertDialog) {
+        AlertDialog.Builder(this)
+            .setTitle("删除配置")
+            .setMessage("确定要删除配置 \"${config.name}\" 吗？")
+            .setPositiveButton("删除") { _, _ ->
+                val repository = com.cvte.irremote.model.repository.ConfigRepository.getInstance(this)
+                if (repository.deleteConfig(config.id)) {
+                    Toast.makeText(this, "配置已删除", Toast.LENGTH_SHORT).show()
+                    parentDialog.dismiss()
+                    // 重新显示更新后的列表
+                    showConfigDialog()
+                } else {
+                    Toast.makeText(this, "删除失败", Toast.LENGTH_SHORT).show()
+                }
             }
             .setNegativeButton(android.R.string.cancel, null)
             .show()

@@ -1,12 +1,16 @@
 package com.cvte.irremote.ui
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.documentfile.provider.DocumentFile
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cvte.irremote.R
 import com.cvte.irremote.databinding.ActivityConfigEditorBinding
@@ -29,6 +33,13 @@ class ConfigEditorActivity : AppCompatActivity() {
     private lateinit var binding: ActivityConfigEditorBinding
     private val viewModel: ConfigEditorViewModel by viewModels()
     private lateinit var keyAdapter: KeyListAdapter
+    
+    // SAF file picker for export
+    private val createDocumentLauncher = registerForActivityResult(
+        ActivityResultContracts.CreateDocument("application/json")
+    ) { uri: Uri? ->
+        uri?.let { saveConfigToUri(it) }
+    }
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -238,21 +249,64 @@ class ConfigEditorActivity : AppCompatActivity() {
      * 导出配置
      */
     private fun exportConfig() {
+        val config = viewModel.config.value
+        if (config == null) {
+            Toast.makeText(this, "没有可导出的配置", Toast.LENGTH_SHORT).show()
+            return
+        }
+        
+        // 显示导出选项对话框
+        AlertDialog.Builder(this)
+            .setTitle(R.string.config_export)
+            .setItems(arrayOf("复制到剪贴板", "保存到文件")) { _, which ->
+                when (which) {
+                    0 -> exportToClipboard()
+                    1 -> exportToFile(config.name)
+                }
+            }
+            .setNegativeButton(R.string.dialog_cancel, null)
+            .show()
+    }
+    
+    /**
+     * 导出到剪贴板
+     */
+    private fun exportToClipboard() {
         val json = viewModel.exportConfig()
         if (json != null) {
-            // 显示导出的JSON
-            AlertDialog.Builder(this)
-                .setTitle(R.string.config_export)
-                .setMessage(json)
-                .setPositiveButton(android.R.string.ok, null)
-                .show()
-            
-            // 可以复制到剪贴板
             val clipboard = getSystemService(CLIPBOARD_SERVICE) as android.content.ClipboardManager
             val clip = android.content.ClipData.newPlainText("IR Config", json)
             clipboard.setPrimaryClip(clip)
-            
             Toast.makeText(this, R.string.msg_config_exported, Toast.LENGTH_SHORT).show()
         }
     }
+    
+    /**
+     * 导出到文件
+     */
+    private fun exportToFile(configName: String) {
+        val fileName = "${configName.replace(" ", "_")}.json"
+        createDocumentLauncher.launch(fileName)
+    }
+    
+    /**
+     * 保存配置到指定 URI
+     */
+    private fun saveConfigToUri(uri: Uri) {
+        val json = viewModel.exportConfig()
+        if (json == null) {
+            Toast.makeText(this, "导出失败", Toast.LENGTH_SHORT).show()
+            return
+        }
+        
+        try {
+            contentResolver.openOutputStream(uri)?.use { outputStream ->
+                outputStream.write(json.toByteArray())
+            }
+            Toast.makeText(this, "配置已保存到文件", Toast.LENGTH_SHORT).show()
+        } catch (e: Exception) {
+            Toast.makeText(this, "保存失败: ${e.message}", Toast.LENGTH_SHORT).show()
+        }
+    }
 }
+

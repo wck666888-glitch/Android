@@ -1,0 +1,17 @@
+{
+    "id": "album_import_demo",
+    "name": "相册导入",
+    "protocol": 1,
+    "header": 34960,
+    "is_default": false,
+    "created_at": 1703520000000,
+    "updated_at": 1703520000000,
+    "keys": [
+        {
+            "key_name": "KEY_HOME",
+            "key_code": 65,
+            "display_name": "主页",
+            "category": "function"
+        }
+    ]
+}

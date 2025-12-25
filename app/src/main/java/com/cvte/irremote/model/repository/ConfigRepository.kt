@@ -231,7 +231,7 @@ class ConfigRepository private constructor(private val context: Context) {
             }
             
             IRLogger.i(TAG, "Synced $successCount configs from remote")
-            successCount > 0
+            true  // Success if API call completed, even with empty list
         } catch (e: Exception) {
             IRLogger.e(TAG, "Failed to sync from remote", e)
             false

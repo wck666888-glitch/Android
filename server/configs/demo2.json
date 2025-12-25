@@ -1,0 +1,31 @@
+{
+    "id": "demo2",
+    "name": "Demo 2 测试配置",
+    "description": "用于测试删除功能的示例配置2",
+    "protocol": 1,
+    "header": 34960,
+    "is_default": false,
+    "version": "1.0",
+    "created_at": 1735100000000,
+    "updated_at": 1735100000000,
+    "keys": [
+        {
+            "key_name": "KEY_POWER",
+            "key_code": 1,
+            "display_name": "电源",
+            "category": "function"
+        },
+        {
+            "key_name": "KEY_VOLUMEUP",
+            "key_code": 68,
+            "display_name": "音量+",
+            "category": "volume"
+        },
+        {
+            "key_name": "KEY_VOLUMEDOWN",
+            "key_code": 69,
+            "display_name": "音量-",
+            "category": "volume"
+        }
+    ]
+}

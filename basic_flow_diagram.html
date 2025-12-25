@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Requirement Flow - TV IR Remote</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 20px 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            /* Removed card styling for PPT integration */
+            max-width: 1200px;
+            width: 95%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 32px;
+            /* Larger title */
+        }
+
+        .mermaid {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📺 基本需求：红外发射调度流程图</h1>
+        <div class="mermaid">
+            sequenceDiagram
+            autonumber
+
+            actor U as 👤 用户 (User)
+            participant V as 📱 View 层<br />(Activity)
+            participant VM as 🧠 ViewModel 层<br />(RemoteControl)
+            participant M as 📦 Model 层<br />(Repository)
+            participant C as 📡 Core 层<br />(IRManager)
+
+            Note over U, V: 1. 用户交互
+            U->>V: 点击"电源"按键
+
+            Note over V, VM: 2. 意图传递
+            V->>VM:调用 onKeyClick(KEY_POWER)
+
+            rect rgb(240, 248, 255)
+            Note over VM, M: 3. 数据获取
+            VM->>M: getIRCode(KEY_POWER)
+            M->>M: 查表 (ConfigRepository内置)
+            M-->>VM: 返回红外码值 "0x0001"
+            end
+
+            rect rgb(255, 245, 238)
+            Note over VM, C: 4. 核心调度
+            VM->>C: transmit(NEC, "0x0001")
+            activate C
+            C->>C: NEC 协议编码 (38kHz)
+            C-->>U: 📶 发射红外信号
+            deactivate C
+            end
+
+            Note over VM, V: 5. 状态反馈
+            VM-->>V: LiveData 通知 (VibrateEvent)
+            V->>U: 📳 手机震动反馈
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#e8f4fc',
+                primaryTextColor: '#2c3e50',
+                primaryBorderColor: '#3498db',
+                lineColor: '#5d6d7e',
+                secondaryColor: '#fef5e7',
+                tertiaryColor: '#fff',
+                mainBkg: '#fff',
+                nodeBorder: '#bdc3c7',
+                clusterBkg: '#f9f9f9',
+                titleColor: '#2c3e50',
+                edgeLabelBackground: '#fff',
+                actorBkg: '#e8f4fc',
+                actorBorder: '#3498db',
+                actorTextColor: '#2c3e50',
+                signalColor: '#2c3e50',
+                signalTextColor: '#2c3e50',
+                labelBoxBkgColor: '#fff',
+                labelBoxBorderColor: '#bdc3c7',
+                labelTextColor: '#5d6d7e',
+                loopTextColor: '#2c3e50',
+                noteBkgColor: '#fff59d',
+                noteBorderColor: '#fbc02d',
+                noteTextColor: '#000000',
+                activationBkgColor: '#f4f6f7',
+                activationBorderColor: '#bdc3c7',
+                sequenceNumberColor: '#fff'
+            }
+        });
+    </script>
+</body>
+
+</html>

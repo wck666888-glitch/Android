@@ -1,0 +1,17 @@
+{
+    "id": "scan_import_demo",
+    "name": "扫码导入",
+    "protocol": 1,
+    "header": 34960,
+    "is_default": false,
+    "created_at": 1703520000000,
+    "updated_at": 1703520000000,
+    "keys": [
+        {
+            "key_name": "KEY_POWER",
+            "key_code": 64,
+            "display_name": "电源",
+            "category": "function"
+        }
+    ]
+}

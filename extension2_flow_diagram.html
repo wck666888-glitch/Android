@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extension 2 Flow - Remote Sync</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 20px 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            max-width: 1200px;
+            width: 95%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        .mermaid {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>☁️ 扩展二：远程同步与列表管理流程图</h1>
+        <div class="mermaid">
+            sequenceDiagram
+            autonumber
+
+            actor U as 👤 用户 (User)
+            participant V as 📱 View 层<br />(ConfigListActivity)
+            participant VM as 🧪 ViewModel 层<br />(ConfigListViewModel)
+            participant M1 as 📡 网络模块<br />(NetworkManager)
+            participant M2 as 📦 数据仓库<br />(ConfigRepository)
+
+            Note over U, V: 动作：下拉刷新 / 点击同步
+            U->>V: 触发同步操作
+            V->>VM: syncRemoteConfigs()
+            VM->>V: isLoading = true (显示加载中)
+
+            rect rgb(240, 248, 255)
+            Note over VM, M1: 1. 获取配置清单
+            VM->>M1: fetchConfigList()
+            M1->>M1: GET /api/configs
+            M1-->>VM: 返回配置元数据列表 (Metadata List)
+            end
+
+            loop 遍历每个配置 ID
+            rect rgb(255, 250, 240)
+            Note over VM, M2: 2. 差异化下载
+            VM->>M1: fetchConfig(id)
+            M1->>M1: GET /api/configs/{id}
+            M1-->>VM: 返回完整 IRConfig
+            VM->>M2: saveConfig(config)
+            M2->>M2: 写入本地数据库
+            end
+            end
+
+            Note over VM, V: 3. 状态更新
+            VM->>M2: getAllConfigs() (刷新本地缓存)
+            M2-->>VM: 返回最新列表
+            VM-->>V: isLoading = false (隐藏加载)
+            VM-->>V: LiveData 通知 (configs 更新)
+            V->>U: 📋 展示最新配置列表
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#e8f4fc',
+                primaryTextColor: '#2c3e50',
+                primaryBorderColor: '#3498db',
+                lineColor: '#5d6d7e',
+                secondaryColor: '#fef5e7',
+                tertiaryColor: '#fff',
+                mainBkg: '#fff',
+                nodeBorder: '#bdc3c7',
+                clusterBkg: '#f9f9f9',
+                titleColor: '#2c3e50',
+                edgeLabelBackground: '#fff',
+                actorBkg: '#e8f4fc',
+                actorBorder: '#3498db',
+                actorTextColor: '#2c3e50',
+                signalColor: '#2c3e50',
+                signalTextColor: '#2c3e50',
+                labelBoxBkgColor: '#fff',
+                labelBoxBorderColor: '#bdc3c7',
+                labelTextColor: '#5d6d7e',
+                loopTextColor: '#2c3e50',
+                noteBkgColor: '#fff59d',
+                noteBorderColor: '#fbc02d',
+                noteTextColor: '#000000',
+                activationBkgColor: '#f4f6f7',
+                activationBorderColor: '#bdc3c7',
+                sequenceNumberColor: '#fff'
+            }
+        });
+    </script>
+</body>
+
+</html>
