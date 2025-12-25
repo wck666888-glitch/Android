@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
+import android.view.LayoutInflater
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
@@ -16,6 +18,7 @@ import com.cvte.irremote.databinding.ActivityRemoteControlBinding
 import com.cvte.irremote.model.entity.IRConfig
 import com.cvte.irremote.utils.PreferenceManager
 import com.cvte.irremote.viewmodel.RemoteControlViewModel
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.snackbar.Snackbar
 
 /**
@@ -25,10 +28,53 @@ import com.google.android.material.snackbar.Snackbar
  */
 class RemoteControlActivity : AppCompatActivity() {
     
+    /**
+     * 特殊按键描述信息数据类
+     */
+    data class KeyDescription(
+        val titleResId: Int,
+        val descResId: Int,
+        val usageResId: Int
+    )
+
     private lateinit var binding: ActivityRemoteControlBinding
     private val viewModel: RemoteControlViewModel by viewModels()
     private lateinit var preferenceManager: PreferenceManager
     private var vibrator: Vibrator? = null
+    
+    // 特殊按键描述信息映射表
+    private val specialKeys: Map<Int, KeyDescription> by lazy {
+        mapOf(
+            // 工厂测试键
+            R.id.btnFacReset to KeyDescription(R.string.key_title_fac_reset, R.string.key_desc_fac_reset, R.string.key_usage_fac_reset),
+            R.id.btnFacMenu to KeyDescription(R.string.key_title_fac_menu, R.string.key_desc_fac_menu, R.string.key_usage_fac_menu),
+            R.id.btnFacVersion to KeyDescription(R.string.key_title_fac_version, R.string.key_desc_fac_version, R.string.key_usage_fac_version),
+            R.id.btnFacAuto to KeyDescription(R.string.key_title_fac_auto, R.string.key_desc_fac_auto, R.string.key_usage_fac_auto),
+            R.id.btnFacAging to KeyDescription(R.string.key_title_fac_aging, R.string.key_desc_fac_aging, R.string.key_usage_fac_aging),
+            R.id.btnFacAdc to KeyDescription(R.string.key_title_fac_adc, R.string.key_desc_fac_adc, R.string.key_usage_fac_adc),
+            R.id.btnFacHdcp to KeyDescription(R.string.key_title_fac_hdcp, R.string.key_desc_fac_hdcp, R.string.key_usage_fac_hdcp),
+            R.id.btnFacMac to KeyDescription(R.string.key_title_fac_mac, R.string.key_desc_fac_mac, R.string.key_usage_fac_mac),
+            R.id.btnFacCiplus to KeyDescription(R.string.key_title_fac_ciplus, R.string.key_desc_fac_ciplus, R.string.key_usage_fac_ciplus),
+            R.id.btnFacF1 to KeyDescription(R.string.key_title_fac_f1, R.string.key_desc_fac_f1, R.string.key_usage_fac_f1),
+            R.id.btnFacFnb to KeyDescription(R.string.key_title_fac_fnb, R.string.key_desc_fac_fnb, R.string.key_usage_fac_fnb),
+            R.id.btnFacTouchpad to KeyDescription(R.string.key_title_fac_touchpad, R.string.key_desc_fac_touchpad, R.string.key_usage_fac_touchpad),
+            // 功能键
+            R.id.btnMedia to KeyDescription(R.string.key_title_media, R.string.key_desc_media, R.string.key_usage_media),
+            R.id.btnPmode to KeyDescription(R.string.key_title_pmode, R.string.key_desc_pmode, R.string.key_usage_pmode),
+            R.id.btnMts to KeyDescription(R.string.key_title_mts, R.string.key_desc_mts, R.string.key_usage_mts),
+            R.id.btnRecord to KeyDescription(R.string.key_title_record, R.string.key_desc_record, R.string.key_usage_record),
+            R.id.btnInfo to KeyDescription(R.string.key_title_info, R.string.key_desc_info, R.string.key_usage_info),
+            R.id.btnKp1 to KeyDescription(R.string.key_title_kp1, R.string.key_desc_kp1, R.string.key_usage_kp1),
+            R.id.btnHelp to KeyDescription(R.string.key_title_help, R.string.key_desc_help, R.string.key_usage_help),
+            R.id.btnZoom to KeyDescription(R.string.key_title_zoom, R.string.key_desc_zoom, R.string.key_usage_zoom),
+            R.id.btnSubtitle to KeyDescription(R.string.key_title_subtitle, R.string.key_desc_subtitle, R.string.key_usage_subtitle),
+            // 彩色快捷键
+            R.id.btnRed to KeyDescription(R.string.key_title_red, R.string.key_desc_red, R.string.key_usage_red),
+            R.id.btnGreen to KeyDescription(R.string.key_title_green, R.string.key_desc_green, R.string.key_usage_green),
+            R.id.btnYellow to KeyDescription(R.string.key_title_yellow, R.string.key_desc_yellow, R.string.key_usage_yellow),
+            R.id.btnBlue to KeyDescription(R.string.key_title_blue, R.string.key_desc_blue, R.string.key_usage_blue)
+        )
+    }
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +84,7 @@ class RemoteControlActivity : AppCompatActivity() {
         preferenceManager = PreferenceManager.getInstance(this)
         initVibrator()
         setupViews()
+        setupSpecialKeyListeners()
         observeViewModel()
     }
     
@@ -52,6 +99,33 @@ class RemoteControlActivity : AppCompatActivity() {
             @Suppress("DEPRECATION")
             getSystemService(VIBRATOR_SERVICE) as? Vibrator
         }
+    }
+    
+    /**
+     * 设置特殊按键长按监听器
+     */
+    private fun setupSpecialKeyListeners() {
+        specialKeys.forEach { (viewId, keyDescription) ->
+            findViewById<View>(viewId)?.setOnLongClickListener {
+                showKeyDescriptionDialog(keyDescription)
+                true
+            }
+        }
+    }
+    
+    /**
+     * 显示按键描述对话框
+     */
+    private fun showKeyDescriptionDialog(keyDescription: KeyDescription) {
+        val dialog = BottomSheetDialog(this)
+        val view = LayoutInflater.from(this).inflate(R.layout.dialog_key_description, null)
+        
+        view.findViewById<TextView>(R.id.tvKeyTitle)?.text = getString(keyDescription.titleResId)
+        view.findViewById<TextView>(R.id.tvKeyDescription)?.text = getString(keyDescription.descResId)
+        view.findViewById<TextView>(R.id.tvKeyUsage)?.text = getString(keyDescription.usageResId)
+        
+        dialog.setContentView(view)
+        dialog.show()
     }
     
     /**

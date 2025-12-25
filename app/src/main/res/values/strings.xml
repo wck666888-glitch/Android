@@ -129,4 +129,134 @@
     <string name="cd_ok_button">确认按钮</string>
     <string name="cd_volume_up">音量增加</string>
     <string name="cd_volume_down">音量减少</string>
+
+    <!-- Special Key Descriptions Dialog -->
+    <string name="key_desc_dialog_title">按键说明</string>
+    <string name="key_desc_label">功能描述</string>
+    <string name="key_usage_label">应用场景</string>
+
+    <!-- FAC Reset -->
+    <string name="key_title_fac_reset">FAC复位</string>
+    <string name="key_desc_fac_reset">恢复电视机至工厂默认设置，清除所有用户数据和测试标记。</string>
+    <string name="key_usage_fac_reset">在生产线末端进行最终测试后，清除所有测试痕迹，确保产品以出厂状态交付给用户。</string>
+
+    <!-- Factory Menu -->
+    <string name="key_title_fac_menu">工厂菜单</string>
+    <string name="key_desc_fac_menu">进入工厂隐藏菜单，可访问高级调试选项和参数设置。</string>
+    <string name="key_usage_fac_menu">研发调试、产线调测或售后维修时，用于调整图像参数、检查硬件状态或进行系统诊断。</string>
+
+    <!-- Version -->
+    <string name="key_title_fac_version">版本号</string>
+    <string name="key_desc_fac_version">快速显示电视的软件版本、固件版本及编译时间等信息。</string>
+    <string name="key_usage_fac_version">产线验证固件版本是否正确，或售后排查问题时快速确认当前运行的软件版本。</string>
+
+    <!-- Auto Tuning -->
+    <string name="key_title_fac_auto">自动调台</string>
+    <string name="key_desc_fac_auto">触发电视的自动频道搜索功能，扫描并存储可用频道。</string>
+    <string name="key_usage_fac_auto">生产测试时快速验证调谐器（Tuner）的信号接收功能是否正常。</string>
+
+    <!-- Aging -->
+    <string name="key_title_fac_aging">老化测试</string>
+    <string name="key_desc_fac_aging">进入老化（Burn-in）模式，循环播放测试图案或视频。</string>
+    <string name="key_usage_fac_aging">在出厂前对电视进行长时间运行测试，以筛选出早期故障元件，提高产品可靠性。</string>
+
+    <!-- ADC -->
+    <string name="key_title_fac_adc">ADC校准</string>
+    <string name="key_desc_fac_adc">对模拟信号输入接口（如AV、VGA）的ADC进行自动调整校准。</string>
+    <string name="key_usage_fac_adc">调整模拟视频输入的色彩准确性，解决色偏或灰阶不均等问题。适用于带有模拟接口的产品。</string>
+
+    <!-- HDCP -->
+    <string name="key_title_fac_hdcp">清除HDCP</string>
+    <string name="key_desc_fac_hdcp">擦除已烧录的HDCP密钥（Key）。</string>
+    <string name="key_usage_fac_hdcp">在主板返修或密钥需重新烧录前，清除旧密钥。注意：此操作后需重新烧录合法密钥方可正常使用HDMI/DP等数字接口。</string>
+
+    <!-- MAC -->
+    <string name="key_title_fac_mac">清除MAC</string>
+    <string name="key_desc_fac_mac">清除网卡的MAC地址。</string>
+    <string name="key_usage_fac_mac">更换主板后或需重新分配MAC地址时使用。清除后需通过专用工具写入新的合法MAC地址。</string>
+
+    <!-- CI+ -->
+    <string name="key_title_fac_ciplus">清除CI+</string>
+    <string name="key_desc_fac_ciplus">清除CI+模块认证凭据。</string>
+    <string name="key_usage_fac_ciplus">CI+模块解绑、故障排查或主板更换后，需要重新进行CI+认证时使用。</string>
+
+    <!-- F1 -->
+    <string name="key_title_fac_f1">F1功能键</string>
+    <string name="key_desc_fac_f1">自定义工厂功能键1，具体功能由固件定义。</string>
+    <string name="key_usage_fac_f1">可配置为快速进入特定测试模式、切换调试日志输出等，根据具体项目需求而定。</string>
+
+    <!-- FnB -->
+    <string name="key_title_fac_fnb">FnB测试</string>
+    <string name="key_desc_fac_fnb">触发FnB（Function B或Front/Back）相关测试功能。</string>
+    <string name="key_usage_fac_fnb">用于特定的面板或外壳装配测试，或触发项目定义的特殊后台检测功能。</string>
+
+    <!-- Touchpad -->
+    <string name="key_title_fac_touchpad">触控测试</string>
+    <string name="key_desc_fac_touchpad">进入触控板/触控屏测试模式。</string>
+    <string name="key_usage_fac_touchpad">验证带有触控功能的设备（如交互式电视、白板）的触控响应和精度是否正常。</string>
+
+    <!-- Media -->
+    <string name="key_title_media">媒体</string>
+    <string name="key_desc_media">打开媒体播放器或媒体中心，浏览和播放本地/网络媒体文件。</string>
+    <string name="key_usage_media">快速访问USB设备中的照片、视频、音乐文件，或进入网络流媒体应用。</string>
+
+    <!-- Picture Mode -->
+    <string name="key_title_pmode">画面模式</string>
+    <string name="key_desc_pmode">切换电视的画面显示模式（如标准、电影、游戏、鲜艳等）。</string>
+    <string name="key_usage_pmode">根据观看内容快速调整画面效果，提升观影体验或减少游戏延迟。</string>
+
+    <!-- MTS -->
+    <string name="key_title_mts">MTS声道</string>
+    <string name="key_desc_mts">切换多声道电视声音系统（Multi-channel Television Sound）的音频输出模式。</string>
+    <string name="key_usage_mts">在立体声、单声道、SAP（第二音频节目）之间切换，适用于双语广播或特殊音频需求。</string>
+
+    <!-- Record -->
+    <string name="key_title_record">录制</string>
+    <string name="key_desc_record">开始/停止节目录制功能（需连接USB存储设备或具备内置录像功能）。</string>
+    <string name="key_usage_record">录制正在播放的电视节目，便于稍后回看。适用于支持PVR功能的电视。</string>
+
+    <!-- Info -->
+    <string name="key_title_info">信息</string>
+    <string name="key_desc_info">显示当前频道或节目的详细信息（如节目名称、分辨率、音频格式等）。</string>
+    <string name="key_usage_info">快速查看信号源信息、当前播放状态或EPG节目指南。</string>
+
+    <!-- KP1 -->
+    <string name="key_title_kp1">KP1扩展键</string>
+    <string name="key_desc_kp1">可编程扩展功能键，具体功能由系统或用户配置决定。</string>
+    <string name="key_usage_kp1">可配置为快捷启动应用、切换信源、或其他常用操作。</string>
+
+    <!-- Red -->
+    <string name="key_title_red">红色键</string>
+    <string name="key_desc_red">彩色快捷键，用于执行菜单中标记为红色的选项或功能。</string>
+    <string name="key_usage_red">在EPG电子节目单、图文电视（Teletext）或互动应用中快速选择红色标记的选项。</string>
+
+    <!-- Green -->
+    <string name="key_title_green">绿色键</string>
+    <string name="key_desc_green">彩色快捷键，用于执行菜单中标记为绿色的选项或功能。</string>
+    <string name="key_usage_green">在EPG电子节目单、图文电视或互动应用中快速选择绿色标记的选项。</string>
+
+    <!-- Yellow -->
+    <string name="key_title_yellow">黄色键</string>
+    <string name="key_desc_yellow">彩色快捷键，用于执行菜单中标记为黄色的选项或功能。</string>
+    <string name="key_usage_yellow">在EPG电子节目单、图文电视或互动应用中快速选择黄色标记的选项。</string>
+
+    <!-- Blue -->
+    <string name="key_title_blue">蓝色键</string>
+    <string name="key_desc_blue">彩色快捷键，用于执行菜单中标记为蓝色的选项或功能。</string>
+    <string name="key_usage_blue">在EPG电子节目单、图文电视或互动应用中快速选择蓝色标记的选项。</string>
+
+    <!-- Help -->
+    <string name="key_title_help">帮助</string>
+    <string name="key_desc_help">打开帮助菜单或显示当前界面的操作指南。</string>
+    <string name="key_usage_help">在不熟悉操作时快速获取使用说明，或查看快捷键提示。</string>
+
+    <!-- Zoom -->
+    <string name="key_title_zoom">缩放</string>
+    <string name="key_desc_zoom">调整画面显示比例或缩放模式（如16:9、4:3、自动等）。</string>
+    <string name="key_usage_zoom">观看不同比例的内容时调整画面填充方式，消除黑边或适应屏幕。</string>
+
+    <!-- Subtitle -->
+    <string name="key_title_subtitle">字幕</string>
+    <string name="key_desc_subtitle">开启/关闭字幕显示，或切换字幕语言和样式。</string>
+    <string name="key_usage_subtitle">观看外语节目时开启字幕，或为听障人士启用隐藏式字幕（CC）。</string>
 </resources>
